@@ -1,0 +1,3012 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0109)http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="vi" lang="vi" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta content="http://diendan.congdongcviet.com">
+	<!--<base href="http://diendan.congdongcviet.com/">--><base href="."><!--[if IE]></base><![endif]-->
+	<meta name="generator" content="Diễn đàn Cộng đồng C Việt @ 2014">
+	<link rel="shortcut icon" href="http://diendan.congdongcviet.com/favicon.ico" type="image/x-icon">
+
+	
+
+
+
+<script src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/f(8).txt"></script><script src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/ca-pub-2525409910423371.js.download"></script><script async="" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/analytics.js.download"></script><script type="text/javascript">
+<!--
+	if (typeof YAHOO === 'undefined') // Load ALL YUI Local
+	{
+		document.write('<script type="text/javascript" src="clientscript/yui/yuiloader-dom-event/yuiloader-dom-event.js?v=422"><\/script>');
+		document.write('<script type="text/javascript" src="clientscript/yui/connection/connection-min.js?v=422"><\/script>');
+		var yuipath = 'clientscript/yui';
+		var yuicombopath = '';
+		var remoteyui = false;
+	}
+	else // Load Rest of YUI remotely (where possible)
+	{
+		var yuipath = 'clientscript/yui';
+		var yuicombopath = '';
+		var remoteyui = true;
+		if (!yuicombopath) document.write('<script type="text/javascript" src="clientscript/yui/connection/connection-min.js"><\/script>');
+	}
+	var SESSIONURL = "s=15147321b478a500671c955a4544ea73&";
+	var SECURITYTOKEN = "guest";
+	var IMGDIR_MISC = "images/misc";
+	var IMGDIR_BUTTON = "images/buttons";
+	var vb_disable_ajax = parseInt("0", 10);
+	var SIMPLEVERSION = "422";
+	var BBURL = "http://diendan.congdongcviet.com/";
+	var LOGGEDIN = 0 > 0 ? true : false;
+	var THIS_SCRIPT = "showthread";
+	var RELPATH = "threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp";
+	var PATHS = {
+		forum : "http://diendan.congdongcviet.com",
+		cms   : "",
+		blog  : ""
+	};
+	var AJAXBASEURL = "http://diendan.congdongcviet.com/";
+// -->
+</script><script type="text/javascript" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/yuiloader-dom-event.js.download"></script><script type="text/javascript" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/connection-min.js.download"></script>
+<script type="text/javascript" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/vbulletin-core.js.download"></script>
+
+
+
+	<link rel="alternate" type="application/rss+xml" title="Cộng đồng C Việt RSS Feed" href="http://diendan.congdongcviet.com/external.php?type=RSS2">
+	
+	<link rel="alternate" type="application/rss+xml" title="Cộng đồng C Việt - Thủ thuật, Tutorials và Mã nguồn C/C++/C++0x - RSS Feed" href="http://diendan.congdongcviet.com/external.php?type=RSS2&amp;forumids=21">
+	
+
+
+
+	<link rel="stylesheet" type="text/css" href="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/main-rollup.css">
+	
+
+	<!--[if lt IE 8]>
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00004l/popupmenu-ie.css?d=1486562733" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00004l/vbulletin-ie.css?d=1486562733" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00004l/vbulletin-chrome-ie.css?d=1486562733" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00004l/vbulletin-formcontrols-ie.css?d=1486562733" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00004l/editor-ie.css?d=1486562733" />
+	<![endif]-->
+	<link rel="stylesheet" type="text/css" href="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/cviet_bbcode.css">
+
+	<meta name="keywords" content="Thủ thuật C, mình, biến, phát, list, block, động, khai, thực, null, chưa, p=null, freep, hoàn, toàn, ngoại, heap, size, luôn, đánh, malloc, từng, những, quản, chất, free, chăng, việc, theo, phóng, giải, trình, langman, trên, trollface, 100%, người, liền, phòng, thống, tránh, được, chuyện, nghĩ">
+	<meta name="description" content="Hum nay mình sẽ đưa ra phân tích rõ bản chất của việc cấp phát và giải phóng bộ nhớ  
+ 
+1. Dẫn nhập 
+ Bộ nhớ là 1 tài nguyên quan trọng trong hệ thống , được phân phối điều phối phức tạp. 
+ 
+ở đây, chúng ta sẽ xét tương quan như sau cho dễ hiểu : đất là 1 tài nguyên quý giá trong thành phố và được điều phối bởi sở tài nguyên môi trường 
+(coi như thế, giờ hình như nó thuộc sở nhà đất thì phải,nói tóm lại là sở quản lí) 
+ 
+ 
+2. Cấp phát bộ nhớ :">
+	<title>Thủ thuật C: Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ</title>
+	<link rel="canonical" href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp?s=15147321b478a500671c955a4544ea73">
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		<link rel="stylesheet" type="text/css" href="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/showthread-rollup.css">
+	
+	<!--[if lt IE 8]><link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00004l/toolsmenu-ie.css?d=1486562733" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00004l/postlist-ie.css?d=1486562733" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00004l/showthread-ie.css?d=1486562733" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00004l/postbit-ie.css?d=1486562733" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00004l/poll-ie.css?d=1486562733" /><![endif]-->
+	<link rel="stylesheet" type="text/css" href="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/additional.css">
+
+<link rel="preload" href="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/f(9).txt" as="script"><script type="text/javascript" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/f(9).txt"></script><link rel="preload" href="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/f(10).txt" as="script"><script type="text/javascript" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/f(10).txt"></script></head>
+<body>
+<div class="above_body"> <!-- closing tag is in template navbar -->
+<div id="toplinks" class="toplinks clearfix">
+
+	<ul class="nouser">
+		<li><a rel="help" href="http://diendan.congdongcviet.com/faq.php?s=15147321b478a500671c955a4544ea73">Help</a></li>
+		
+			<li><a href="http://diendan.congdongcviet.com/register.php?s=15147321b478a500671c955a4544ea73" rel="nofollow">Đăng ký</a></li>
+		
+		<li>
+		<script type="text/javascript" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/vbulletin_md5.js.download"></script>
+		<form id="navbar_loginform" action="http://diendan.congdongcviet.com/login.php?s=15147321b478a500671c955a4544ea73&amp;do=login" method="post" onsubmit="md5hash(vb_login_password, vb_login_md5password, vb_login_md5password_utf, 0)">
+			<fieldset id="logindetails" class="logindetails">
+				<div>
+					<input type="text" class="textbox default-value" name="vb_login_username" id="navbar_username" size="10" accesskey="u" tabindex="101" value="Username">
+					<input type="password" class="textbox" tabindex="102" name="vb_login_password" id="navbar_password" size="10" aria-autocomplete="list" style="display: none;">
+					<input type="text" class="textbox default-value" tabindex="102" name="vb_login_password_hint" id="navbar_password_hint" size="10" value="Password" style="display: inline;">
+					<input type="submit" class="loginbutton" tabindex="104" value="Log in" title="Nhập vào username và password của bạn trong các hộp đã cung cấp để đăng nhập, hoặc click vào &#39;register&#39; button để tạo một hồ sơ cho bạn." accesskey="s">
+					<label for="cb_cookieuser_navbar">
+						<input type="checkbox" name="cookieuser" value="1" id="cb_cookieuser_navbar" class="cb_cookieuser_navbar" accesskey="c" tabindex="103"> Nhớ tôi vào?
+					</label>
+				</div>
+			</fieldset>
+			
+			<input type="hidden" name="s" value="15147321b478a500671c955a4544ea73">
+			<input type="hidden" name="securitytoken" value="guest">
+			<input type="hidden" name="do" value="login">
+			<input type="hidden" name="vb_login_md5password">
+			<input type="hidden" name="vb_login_md5password_utf">
+		</form>
+	<script type="text/javascript">
+	YAHOO.util.Dom.setStyle('navbar_password_hint', "display", "inline");
+	YAHOO.util.Dom.setStyle('navbar_password', "display", "none");
+	vB_XHTML_Ready.subscribe(function()
+	{
+	//
+		YAHOO.util.Event.on('navbar_username', "focus", navbar_username_focus);
+		YAHOO.util.Event.on('navbar_username', "blur", navbar_username_blur);
+		YAHOO.util.Event.on('navbar_password_hint', "focus", navbar_password_hint);
+		YAHOO.util.Event.on('navbar_password', "blur", navbar_password);
+	});
+	
+	function navbar_username_focus(e)
+	{
+	//
+		var textbox = YAHOO.util.Event.getTarget(e);
+		if (textbox.value == 'Username')
+		{
+		//
+			textbox.value='';
+			textbox.style.color='#000000';
+		}
+	}
+
+	function navbar_username_blur(e)
+	{
+	//
+		var textbox = YAHOO.util.Event.getTarget(e);
+		if (textbox.value == '')
+		{
+		//
+			textbox.value='Username';
+			textbox.style.color='#777777';
+		}
+	}
+	
+	function navbar_password_hint(e)
+	{
+	//
+		var textbox = YAHOO.util.Event.getTarget(e);
+		
+		YAHOO.util.Dom.setStyle('navbar_password_hint', "display", "none");
+		YAHOO.util.Dom.setStyle('navbar_password', "display", "inline");
+		YAHOO.util.Dom.get('navbar_password').focus();
+	}
+
+	function navbar_password(e)
+	{
+	//
+		var textbox = YAHOO.util.Event.getTarget(e);
+		
+		if (textbox.value == '')
+		{
+			YAHOO.util.Dom.setStyle('navbar_password_hint', "display", "inline");
+			YAHOO.util.Dom.setStyle('navbar_password', "display", "none");
+		}
+	}
+	</script>
+		</li>
+		
+	</ul>
+
+</div>
+<div id="header" class="doc_header clearfix">
+	
+	<div class="logo">
+		<a name="top" href="http://diendan.congdongcviet.com/forum.php?s=15147321b478a500671c955a4544ea73" class="logo-image" title="Cộng đồng C Việt - Lập trình C, Lập trình C++, Lập trình C#, Lập trình Java, Lập trình iOS, Lập trình Android, Lập trình Linux, Mã nguồn ... Phát triển ứng dụng CNTT tại Việt Nam">
+			<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/cviet_logo.png" alt="Cộng đồng C Việt" title="Cộng đồng C Việt">
+		</a>
+	</div>
+	
+	<div class="ad_global_header">
+		
+		<div id="ad_global_header2"><div id="head_banner" style="position: relative; margin: 0px auto; top: 0px; left: 0px; width: 728px; height: 90px; overflow: hidden; visibility: visible;" jssor-slider="true">
+        
+        
+        
+        
+        
+    <div style="position: absolute; top: 0px; left: 0px; width: 728px; height: 90px; transform-origin: 0px 0px 0px; transform: scale(1);"><div class="" style="position: relative; margin: 0px auto; top: 0px; left: 0px; width: 728px; height: 90px; overflow: visible; visibility: visible; display: block;"><div style="position: absolute; top: 0px; left: 0px; width: 728px; height: 90px; display: none;" data-u="loading">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+            <div style="position:absolute;display:block;background:url(&#39;images/slider/loading.gif&#39;) no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div><div data-u="slides" style="cursor: default; position: absolute; top: 0px; left: 0px; width: 728px; height: 90px; overflow: hidden; z-index: 0;"><div style="position: absolute; z-index: 0; pointer-events: none;"></div></div><div data-u="slides" style="cursor: default; position: absolute; top: 0px; left: 0px; width: 728px; height: 90px; overflow: hidden; z-index: 0;"><div style="top: 0px; left: 0px; width: 728px; height: 90px; position: absolute; background-color: rgb(0, 0, 0); opacity: 0;"></div>
+			<div style="top: 0px; left: 0px; width: 728px; height: 90px; position: absolute; overflow: hidden; perspective: 112.5px;" data-p="112.50">
+				<!-- CViet TopHeader -->
+				<ins class="adsbygoogle" style="display: block; height: 90px;" data-ad-client="ca-pub-2525409910423371" data-ad-slot="6395038884" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:728px;height:90px;" __idm_frm__="21" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/saved_resource(1).html"></iframe></ins></ins></ins>
+				<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+            <div style="position: absolute; top: 0px; left: 0px; width: 728px; height: 90px; z-index: 1000; display: none;" data-u="loading">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+            <div style="position:absolute;display:block;background:url(&#39;images/slider/loading.gif&#39;) no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div></div>
+        </div><div class="bullet_slider" style="bottom: 8px; right: 8px; width: 16px; height: 16px;" data-u="navigator" data-autocenter="0">
+            
+        <div style="width: 16px; height: 16px; position: absolute; left: 0px; top: 0px;" data-u="prototype" class="av"></div></div><span class="slider_arrow_left" style="top: 25px; left: 8px; width: 40px; height: 40px; display: none;" data-u="arrowleft" data-autocenter="2"></span><span class="slider_arrow_right" style="top: 25px; right: 8px; width: 40px; height: 40px; display: none;" data-u="arrowright" data-autocenter="2"></span></div></div></div></div>
+	</div>
+</div>
+<div id="navbar" class="navbar">
+	<ul id="navtabs" class="navtabs clearfix">
+		
+		
+
+<li id="vbtab_whatsnew">
+	<a class="navtab" href="http://diendan.congdongcviet.com/activity.php?s=15147321b478a500671c955a4544ea73">What's New?</a>
+
+	
+</li>
+
+
+<li id="vbtab_forum" class="selected">
+	<a class="navtab" href="http://diendan.congdongcviet.com/forum.php?s=15147321b478a500671c955a4544ea73">Tất cả diễn đàn</a>
+
+	
+	<ul class="clearfix">
+		
+			
+				
+					<li id="vbflink_newposts"><a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=getnew&amp;contenttype=vBForum_Post&amp;exclude=37,45,69">Các bài viết mới</a></li>
+				
+			
+		
+			
+				
+					<li id="vbflink_calendar"><a href="http://diendan.congdongcviet.com/calendar.php?s=15147321b478a500671c955a4544ea73">Lịch</a></li>
+				
+			
+		
+			
+				<li class="popupmenu" id="vbmenu_actions">
+					<a href="javascript://" class="popupctrl" id="yui-gen1">Forum Actions</a>
+					<ul class="popupbody" id="yui-gen0">
+						
+							<li id="vbalink_mfr"><a href="http://diendan.congdongcviet.com/forumdisplay.php?s=15147321b478a500671c955a4544ea73&amp;do=markread&amp;markreadhash=guest">Đánh dấu các diễn đàn là đã đọc</a></li>
+						
+					</ul>
+				</li>
+			
+		
+			
+				<li class="popupmenu" id="vbmenu_qlinks">
+					<a href="javascript://" class="popupctrl" id="yui-gen3">Quick Links</a>
+					<ul class="popupbody" id="yui-gen2">
+						
+							<li id="vbqlink_posts"><a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=getdaily&amp;contenttype=vBForum_Post">Các bài viết hôm nay</a></li>
+						
+							<li id="vbqlink_leaders"><a href="http://diendan.congdongcviet.com/showgroups.php?s=15147321b478a500671c955a4544ea73">View Site Leaders</a></li>
+						
+					</ul>
+				</li>
+			
+		
+	</ul>
+	
+</li>
+
+
+<li id="tab_odg4_564">
+	<a class="navtab" href="http://diendan.congdongcviet.com/forums/f54::nhap-mon-lap-trinh-c-cpp.cpp?tabid=28">Lập trình cho người mới</a>
+
+	
+</li>
+
+
+<li id="tab_odg4_125">
+	<a class="navtab" href="http://diendan.congdongcviet.com/forums/f31::tutorials-thu-thuat-lap-trinh-csharp-asp-net.cpp?tabid=30">Tutorials &amp; Thủ thuật</a>
+
+	
+</li>
+
+		
+	</ul>
+	
+		<div id="globalsearch" class="globalsearch">
+			<form id="navbar_search" class="navbar_search clearfix" action="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=process" method="post">
+				
+				<input type="hidden" name="securitytoken" value="guest">
+				<input type="hidden" name="do" value="process">
+				<span class="textboxcontainer"><input type="text" value="" name="query" class="textbox" tabindex="99"></span>
+				<span class="buttoncontainer"><input type="image" class="searchbutton" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/search.png" name="submit" onclick="document.getElementById(&#39;navbar_search&#39;).submit;" tabindex="100"></span>
+			</form>
+			<ul class="navbar_advanced_search">
+				<li><a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73" accesskey="4">Tìm kiếm cao cấp »</a></li>
+				
+			</ul>
+		</div>
+	
+</div>
+</div><!-- closing div for above_body -->
+
+<div class="body_wrapper">
+<div class="breadcrumb">
+	<ul class="clearfix">
+		<li class="navbithome"><a href="http://diendan.congdongcviet.com/?s=15147321b478a500671c955a4544ea73" accesskey="1"><img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/navbit-home.png" alt="Home" title="Home"></a></li>
+		
+
+	<li class="navbit"><a href="http://diendan.congdongcviet.com/forum.php?s=15147321b478a500671c955a4544ea73">Diễn đàn</a></li>
+
+
+	<li class="navbit"><a href="http://diendan.congdongcviet.com/forums/f7::lap-trinh-cpp-lap-trinh-c-lap-trinh-cpp0x.cpp?s=15147321b478a500671c955a4544ea73">LẬP TRÌNH C++ | LẬP TRÌNH C | LẬP TRÌNH C++0X</a></li>
+
+
+	<li class="navbit"><a href="http://diendan.congdongcviet.com/forums/f21::thu-thuat-tutorials-ma-nguon-c-cpp-cpp0x.cpp?s=15147321b478a500671c955a4544ea73">Thủ thuật, Tutorials và Mã nguồn C/C++/C++0x</a></li>
+
+		
+
+	<li class="navbit lastnavbit"><span>Thủ thuật C Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ</span></li>
+
+	</ul>
+	<hr>
+</div>
+
+
+<div id="ad_global_below_navbar"><div id="nav_banner" style="position: relative; margin: 0px auto; top: 0px; left: 0px; height: 90px; overflow: hidden; visibility: visible; width: 1270px;" jssor-slider="true">
+        
+        
+        
+        
+        
+    <div style="position: absolute; top: 0px; left: 0px; width: 1270px; height: 90px; transform-origin: 0px 0px 0px; transform: scale(1);"><div class="" style="position: relative; margin: 0px auto; top: 0px; left: 0px; height: 90px; overflow: visible; visibility: visible; display: block;"><div style="position: absolute; top: 0px; left: 0px; width: 728px; height: 90px; display: none;" data-u="loading">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+            <div style="position:absolute;display:block;background:url(&#39;images/slider/loading.gif&#39;) no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div><div data-u="slides" style="cursor: default; position: absolute; top: 0px; left: 0px; width: 728px; height: 90px; overflow: hidden; z-index: 0;"><div style="position: absolute; z-index: 0; pointer-events: none;"></div></div><div data-u="slides" style="cursor: default; position: absolute; top: 0px; left: 0px; width: 728px; height: 90px; overflow: hidden; z-index: 0;"><div style="top: 0px; left: 0px; width: 728px; height: 90px; position: absolute; background-color: rgb(0, 0, 0); opacity: 0;"></div>
+			<div style="top: 0px; left: 0px; width: 728px; height: 90px; position: absolute; overflow: hidden; perspective: 112.5px;" data-p="112.50">
+				<!-- CViet Navbar -->
+				<ins class="adsbygoogle" style="display: block; height: 90px;" data-ad-client="ca-pub-2525409910423371" data-ad-slot="9033790880" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:728px;height:90px;" __idm_frm__="23" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/saved_resource(2).html"></iframe></ins></ins></ins>
+				<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+            <div style="position: absolute; top: 0px; left: 0px; width: 728px; height: 90px; z-index: 1000; display: none;" data-u="loading">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+            <div style="position:absolute;display:block;background:url(&#39;images/slider/loading.gif&#39;) no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div></div>
+        </div><div class="bullet_slider" style="bottom: 8px; right: 8px; width: 16px; height: 16px;" data-u="navigator" data-autocenter="0">
+            
+        <div style="width: 16px; height: 16px; position: absolute; left: 0px; top: 0px;" data-u="prototype" class="av"></div></div><span class="slider_arrow_left" style="top: 25px; left: 8px; width: 40px; height: 40px; display: none;" data-u="arrowleft" data-autocenter="2"></span><span class="slider_arrow_right" style="top: 25px; right: 8px; width: 40px; height: 40px; display: none;" data-u="arrowright" data-autocenter="2"></span></div></div></div>
+	<script type="text/javascript" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/jssor.slider.min.js.download"></script>
+    <script type="text/javascript">
+        bannerSlider_init = function() {
+            
+            var bannerSlideshowTransitions = [
+              {$Duration:3000,x:-0.3,$During:{$Left:[0.3,0.7]},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:3000,x:0.3,$SlideOut:true,$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2}
+            ];
+            
+            var bannerOptions = {
+              $AutoPlay: true,
+              $SlideshowOptions: {
+                $Class: $JssorSlideshowRunner$,
+                $Transitions: bannerSlideshowTransitions,
+                $TransitionsOrder: 1
+              },
+              $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$
+              },
+              $BulletNavigatorOptions: {
+                $Class: $JssorBulletNavigator$
+              },
+              $ThumbnailNavigatorOptions: {
+                $Class: $JssorThumbnailNavigator$,
+                $Cols: 1,
+                $Align: 0,
+                $NoDrag: true
+              }
+            };
+            
+            var bannerSlider = new $JssorSlider$("head_banner", bannerOptions);
+			bannerSlider = new $JssorSlider$("nav_banner", bannerOptions);
+        };
+    </script>
+    <script type="text/javascript">bannerSlider_init();</script></div>
+
+
+	<form id="notices" class="notices" action="http://diendan.congdongcviet.com/profile.php?do=dismissnotice" method="post">
+		<input type="hidden" name="do" value="dismissnotice">
+		<input type="hidden" name="s" value="s=15147321b478a500671c955a4544ea73&amp;">
+		<input type="hidden" name="securitytoken" value="guest">
+		<input type="hidden" id="dismiss_notice_hidden" name="dismiss_noticeid" value="">
+		<input type="hidden" name="url" value="">
+		<ol><li class="restore clearfix" id="navbar_notice_1">
+	
+	Nếu đây là lần đầu tiên bạn ghé thăm diễn đàn cộng đồng C Việt, vui lòng tìm hiểu luật lệ tham gia, đọc các hướng dẫn trước khi bạn tiến hành đăng ký một tài khoản. Bạn phải <a href="http://diendan.congdongcviet.com/register.php?s=15147321b478a500671c955a4544ea73"><b>đăng ký thành viên</b></a> trước, hoặc đăng nhập bằng <b>tài khoản facebook của bạn</b> bạn mới có thể gửi bài viết, tải các đính kèm.<br>
+<fb:like href="https://www.facebook.com/congdongcviet" width="560" layout="standard" action="like" show_faces="false" share="false"></fb:like>
+</li></ol>
+	</form>
+
+
+
+	<div id="above_postlist" class="above_postlist clearfix">
+		
+		<div id="pagination_top" class="pagination_top">
+		
+			<form action="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp/page3?s=15147321b478a500671c955a4544ea73" method="get" class="pagination popupmenu nohovermenu" id="yui-gen4">
+<input type="hidden" name="t" value="36221"><input type="hidden" name="s" value="15147321b478a500671c955a4544ea73">
+	
+		<span><a href="javascript://" class="popupctrl" id="yui-gen6">Trang 1 trên tổng số 5</a></span>
+		
+		
+		
+		<span class="selected"><a href="javascript://" title="Từ 1 tới 10 trên tổng số 48 kết quả">1</a></span><span><a href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp/page2?s=15147321b478a500671c955a4544ea73" title="Hiện từ 11 tới 20 trên tổng số 48 kết quả">2</a></span><span><a href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp/page3?s=15147321b478a500671c955a4544ea73" title="Hiện từ 21 tới 30 trên tổng số 48 kết quả">3</a></span><span class="separator">...</span>
+		<span class="prev_next"><a rel="next" href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp/page2?s=15147321b478a500671c955a4544ea73" title="Trang liền sau - Từ 11 tới 20 trên tổng số 48 kết quả"><img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/next-right.png" alt="Liền sau" title="Liền sau"></a></span>
+		<span class="first_last"><a href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp/page5?s=15147321b478a500671c955a4544ea73" title="Trang cuối - Từ 41 tới 48 trên tổng số 48 kết quả">Cuối cùng<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/last-right.png" alt="Cuối cùng" title="Cuối cùng"></a></span>
+	
+	<ul class="popupbody" id="yui-gen5">
+		<li class="formsubmit jumptopage"><label>Nhảy tới trang: <input type="text" name="page" size="4"></label> <input type="submit" class="button" value="Go"></li>
+	</ul>
+</form>
+		
+			<div id="postpagestats_above" class="postpagestats">Từ 1 tới 10 trên tổng số 48 kết quả</div>
+		</div>
+	</div>
+	<div id="pagetitle" class="pagetitle">
+		<h1>Đề tài: <span class="threadtitle"><a href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp?s=15147321b478a500671c955a4544ea73" title="Tải lại trang này">Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ</a></span></h1>
+	</div>
+	<fb:like width="560" href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp" layout="standard" action="like" show_faces="false" share="true" colorscheme="light"></fb:like>
+	<div id="thread_controls" class="thread_controls toolsmenu">
+		<div class="clearfix">
+		<ul id="postlist_popups" class="postlist_popups popupgroup">
+			
+			
+			<li class="popupmenu" id="threadtools">
+				<h6><a class="popupctrl" href="javascript://" id="yui-gen8">Các công cụ đề tài</a></h6>
+				<ul class="popupbody" id="yui-gen7">
+					<li><a href="http://diendan.congdongcviet.com/printthread.php?s=15147321b478a500671c955a4544ea73&amp;t=36221&amp;pp=10&amp;page=1" accesskey="3" rel="nofollow">Show Printable Version</a></li>
+					
+						<li><a href="http://diendan.congdongcviet.com/sendmessage.php?s=15147321b478a500671c955a4544ea73&amp;do=sendtofriend&amp;t=36221" rel="nofollow">Email trang này…</a></li>
+					
+					<li>
+						
+							<a href="http://diendan.congdongcviet.com/subscription.php?s=15147321b478a500671c955a4544ea73&amp;do=addsubscription&amp;t=36221" rel="nofollow">Theo dõi đề tài này…</a>
+						
+					</li>
+					
+				</ul>
+			</li>
+
+			
+
+			
+
+			
+
+			
+				<li class="popupmenu" id="displaymodes">
+					<h6><a class="popupctrl" href="javascript://" id="yui-gen10">Display</a></h6>
+					<ul class="popupbody" id="yui-gen9">
+						<li><label>Chế độ tuyến tính</label></li>
+						<li><a href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp?s=15147321b478a500671c955a4544ea73&amp;mode=hybrid"> Chuyển sang chế độ kết hợp</a></li>
+						<li><a href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp?s=15147321b478a500671c955a4544ea73&amp;p=163037&amp;mode=threaded#post163037"> Chuyển sang chế độ phân luồng</a></li>
+					</ul>
+				</li>
+			
+
+			
+			</ul>
+		</div>
+	</div>
+
+<div id="postlist" class="postlist restrain">
+	
+	
+		<ol id="posts" class="posts clearfix" start="1">
+<li class="postbit postbitim postcontainer old" id="post_163037">
+	<div class="postdetails_noavatar">
+		<div class="posthead clearfix">
+			<span class="postdate old">
+			
+				<span class="date">09-09-2010,&nbsp;<span class="time">12:40 AM</span></span>
+			
+			</span>
+			<span class="nodecontrols">
+			
+				<a name="post163037" href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp?s=15147321b478a500671c955a4544ea73&amp;p=163037#post163037" class="postcounter">#1</a><a id="postcount163037" name="1"></a>
+			
+			
+			
+			</span>
+		</div>
+		<div class="userinfo clearfix">
+			<div class="contact">
+				
+					<a class="postuseravatarlink" href="http://diendan.congdongcviet.com/members/u14971::langman.cpp?s=15147321b478a500671c955a4544ea73" title="langman là offline">
+						
+							<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/avatar14971_6.gif" alt="Avatar của langman" title="Avatar của langman">
+						
+					</a>
+				
+				<div class="username_container">
+					
+						
+<div class="popupmenu memberaction" id="yui-gen11">
+	<a class="username offline popupctrl" href="http://diendan.congdongcviet.com/members/u14971::langman.cpp?s=15147321b478a500671c955a4544ea73" title="langman là offline" id="yui-gen13"><span style="color: #FF6800;">langman</span></a>
+	<ul class="popupbody memberaction_body" id="yui-gen12">
+		<li class="left">
+			<a href="http://diendan.congdongcviet.com/members/u14971::langman.cpp?s=15147321b478a500671c955a4544ea73" class="siteicon_profile">Xem hồ sơ</a>
+		</li>
+		<li class="right">
+			<a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=finduser&amp;userid=14971&amp;contenttype=vBForum_Post" class="siteicon_forum" rel="nofollow">View Forum Threads</a>
+		</li>
+		<li class="right">
+			<a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=finduser&amp;userid=14971&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">View Forum Posts</a>
+		</li>
+		
+		<li class="left">
+			<a href="http://diendan.congdongcviet.com/private.php?s=15147321b478a500671c955a4544ea73&amp;do=newpm&amp;u=14971" class="siteicon_message" rel="nofollow">
+				Tin nhắn
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/user-offline.png" alt="langman là offline" border="0" title="langman là offline">
+
+					
+					<span class="usertitle">
+						Thành viên mới
+					</span>
+					
+						<span class="rank"><img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/moderator_4.png" alt="" border=""></span>
+					
+
+					
+					
+					
+						<div class="imlinks">
+							    
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Ngày gia nhập</dt> <dd>06 2007</dd>
+						<dt>Nơi ở</dt> <dd>C:\WINDOWS\system32\dllcache\</dd>
+						
+						<dt>Bài viết</dt> <dd>3,007</dd>	
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+	<div class="postbody">
+		
+		<div class="postrow">
+			<h2 class="posttitle icon">
+				
+				<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/icon1.png" alt="Mặc định" title="Mặc định"> Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ
+				
+			</h2>
+			<div class="content hasad">
+				<div id="post_message_163037">
+					<blockquote class="postcontent restore">Hum nay mình sẽ đưa ra phân tích rõ bản chất của việc cấp phát và giải phóng bộ nhớ <br>
+<br>
+1. Dẫn nhập<br>
+ Bộ nhớ là 1 tài nguyên quan trọng trong hệ thống , được phân phối điều phối phức tạp.<br>
+<br>
+<font color="Magenta">ở đây, chúng ta sẽ xét tương quan như sau cho dễ hiểu : </font><font color="Magenta"><font color="Red">đất</font> là 1 tài nguyên quý giá trong thành phố và được điều phối bởi </font><font color="Magenta"><font color="Red">sở</font> tài nguyên môi trường<br>
+(coi như thế, giờ hình như nó thuộc sở nhà đất thì phải,nói tóm lại là </font><font color="Magenta">sở</font> quản lí)<br>
+<br>
+<br>
+2. Cấp phát bộ nhớ :<br>
+Bộ nhớ quan trọng như thế ko thể tùy tiện sử dụng , vì trong máy có nhiều tiếng trình cần bộ nhớ, tùy tiện sử dụng thì lấy đâu ra mà dùng  ????<br>
+<font color="Magenta"><br>
+ai cũng cần có <font color="Red">đất</font>, cứ tùy tiện lấy gì cần gì <font color="Red">sở</font> quản lý, như thế sẽ có người không có <font color="Red">đất</font> mà dùng ???</font><br>
+<br>
+<br>
+Cấp phát bộ nhớ hoạt động như thế nào : bản chất là trao quyền sử dụng.<br>
+<br>
+hôm nay 1 người (1 con trỏ) xin cấp phát (malloc, new) 1 vùng đất, anh ta <font color="Red">được trao quyền sử dụng 1 vùng đất đó. </font><br>
+Khi này :<br>
++ <font color="Magenta">Có thể trên mảnh đất này đang trống rỗng (toàn null) nhưng cũng có thể trên đó đầy cỏ rác,hoa màu hoặc nhà cửa do người trước đó sử dụng vẫn còn . (điều này đối với anh ta mà nói nó hoàn toàn là ngẫu nhiên, ko ai có thể khẳng định được cả)</font><br>
+&gt;&gt;&gt;&gt;&gt; khi ta xin cấp phát xong thì vùng nhớ đó hoàn toàn có giá trị ngẫu nhiên<br>
+<br>
+<br>
++ <font color="Magenta">Nếu như khi anh ta xin cấp phát mà có đút lót để ra thêm điều kiện hoặc trước đó anh ta có thuê thêm 1 người quét dọn xây sửa thì anh sẽ có được 1 mảnh đất có sẵn cái anh ta muốn</font><br>
+&gt;&gt;&gt;&gt; khi ta cấp phát đi cùng với ép buộc sẽ được vùng nhớ có giá trị như ta mong muốn<br>
+ví dụ <br>
+<div class="bbcode_container bbcode_container_code">
+	<div class="bbcode_description">PHP Code:</div>
+	<div class="bbcode_code" style="height:84px;"><code><span style="color: #000000">
+<span style="color: #0000BB">int&nbsp;</span><span style="color: #007700">*</span><span style="color: #0000BB">a</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">int</span><span style="color: #007700">(</span><span style="color: #0000BB">4</span><span style="color: #007700">);<br></span><span style="color: #0000BB">int&nbsp;</span><span style="color: #007700">*</span><span style="color: #0000BB">b</span><span style="color: #007700">=(</span><span style="color: #0000BB">int</span><span style="color: #007700">*)</span><span style="color: #0000BB">malloc</span><span style="color: #007700">(</span><span style="color: #0000BB">1000</span><span style="color: #007700">);<br></span><span style="color: #0000BB">memset</span><span style="color: #007700">(</span><span style="color: #0000BB">b</span><span style="color: #007700">.....);<br>static&nbsp;</span><span style="color: #0000BB">int&nbsp;x</span><span style="color: #007700">[</span><span style="color: #0000BB">1000</span><span style="color: #007700">];<br>static&nbsp;</span><span style="color: #0000BB">int&nbsp;y</span><span style="color: #007700">[</span><span style="color: #0000BB">10</span><span style="color: #007700">]={</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #0000BB">2</span><span style="color: #007700">,</span><span style="color: #0000BB">3</span><span style="color: #007700">,</span><span style="color: #0000BB">4</span><span style="color: #007700">,</span><span style="color: #0000BB">5</span><span style="color: #007700">,</span><span style="color: #0000BB">6</span><span style="color: #007700">};&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code></div>
+</div>&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; toàn bộ điều này là đáp án tại sao khi cấp phát bộ nhớ lại có giá trị ngẫu nhiên<br>
+<br>
+<br>
+<br>
+3. Giải phóng bộ nhớ như thế nào<br>
+<br>
+Anh ta dùng xong đất rồi, ko cần nữa, đem trả quyền sử dụng mảnh đất lại cho khổ chủ.<br>
+<br>
+Giải bộ nhớ hoạt động như thế nào : bản chất là trả lại quyền sử dụng<br>
+khi này :<br>
++ <font color="Magenta">sở sẽ thu lại quyền sử dụng đất của anh, thế là đủ rồi, sở ko cần phải động chạm sửa chữa lại gì vùng đất đó. Nên khi đó dù vùng đất đó đã được giải phóng nhưng mà hoa màu của a ta trên đó thì vẫn còn, ko có biến mất được</font><br>
+<br>
+điều này giải thích tại sao khi mà trong 1 số hệ điều hành đời cổ, (các bạn lính mới bây giờ chắc không gặp) nhiều bạn thử giải phóng bộ nhớ rồi, delete rồi, free rồi mà khi in thử ra vẫn thấy kết quả như thế .<br>
+<font color="Magenta">đơn giản thôi, a ta trả lại mảnh đất đó, nhưng chưa có ai thuê nó cả, chưa có ai sử dụng nên hôm sau ra xem thử thì nó vẫn như hôm trước khi a ta trả lại</font> <br>
+<font color="Red">Các bạn đọc rõ chú ý ở dưới rồi hẵng hỏi thêm về câu này nhé.</font><br>
+<br>
+Và các bạn phải chú ý là quyền sử dụng đất mới là cái được quan tâm duy nhất của vấn đề này<br>
+<br>
+<div class="bbcode_container bbcode_container_code">
+	<div class="bbcode_description">PHP Code:</div>
+	<div class="bbcode_code" style="height:48px;"><code><span style="color: #000000">
+<span style="color: #0000BB">int&nbsp;</span><span style="color: #007700">*</span><span style="color: #0000BB">a</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">int</span><span style="color: #007700">[</span><span style="color: #0000BB">10</span><span style="color: #007700">];<br></span><span style="color: #0000BB">int&nbsp;</span><span style="color: #007700">*</span><span style="color: #0000BB">b</span><span style="color: #007700">=(</span><span style="color: #0000BB">int</span><span style="color: #007700">*)</span><span style="color: #0000BB">malloc</span><span style="color: #007700">(</span><span style="color: #0000BB">1000</span><span style="color: #007700">);&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code></div>
+</div>thì giá trị trong a và b là địa chỉ của vùng nhớ được cấp phát. địa chỉ này sẽ được lưu lại trong <font color="Red">sở</font>, <font color="Red">sở</font> sẽ dùng cái số <font color="Red">địa chỉ</font> này để hiểu là <font color="Red">quyền sử dụng</font> đất khi giải phóng<br>
+<br>
+tiếp theo<br>
+<div class="bbcode_container bbcode_container_code">
+	<div class="bbcode_description">PHP Code:</div>
+	<div class="bbcode_code" style="height:48px;"><code><span style="color: #000000">
+<span style="color: #0000BB">free</span><span style="color: #007700">(</span><span style="color: #0000BB">b</span><span style="color: #007700">);<br></span><span style="color: #0000BB">delete&nbsp;</span><span style="color: #007700">[]</span><span style="color: #0000BB">a</span><span style="color: #007700">;&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code></div>
+</div>2 câu lệnh này ko có làm thay đổi giá trị của a và ba và b vẫn trỏ vào mảnh đất đấy. ok ? Và càng ko can thiệp vào vùng nhớ mà a ,b trỏ đến, cái duy nhất mà nó làm là xác nhận vùng nhớ đó đã được trả lại, đang rảnh rỗi, có thể cho thuê tiếp.<br>
+<br>
+&lt;&lt;&lt; điều này giải thích cho cách hiểu sai lầm của 1 số bạn mới học đối với việc cấp phát và giải phóng<br>
+<br>
+<br>
+<br>
+4. Memory leak<br>
+<br>
+Câu hỏi mở rộng :<br>
+như thế này có phải là giải phóng ko<br>
+<div class="bbcode_container bbcode_container_code">
+	<div class="bbcode_description">PHP Code:</div>
+	<div class="bbcode_code" style="height:48px;"><code><span style="color: #000000">
+<span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;int</span><span style="color: #007700">*</span><span style="color: #0000BB">x</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">int</span><span style="color: #007700">[</span><span style="color: #0000BB">20</span><span style="color: #007700">];<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">x</span><span style="color: #007700">=</span><span style="color: #0000BB">NULL</span><span style="color: #007700">;&nbsp;&nbsp;&lt;&lt;&lt;&lt;&lt;&nbsp;</span><span style="color: #0000BB">như&nbsp;thế&nbsp;này&nbsp;có&nbsp;phải&nbsp;là&nbsp;giải&nbsp;phóng&nbsp;ko&nbsp;
+<br></span>
+</span>
+</code></div>
+</div><font color="Red">ở trong C (not java, java khác) thì :</font><br>
+câu trả lời là không , bạn đã hiểu sai lầm hoàn toàn về việc giải phóng rồi, bạn nên đọc kĩ lại phần giải phóng để hiểu tại sao. <br>
+như thế này chính là :<br>
+anh ta đánh mất cái quyền sử dụng đất của mình, kết quả là vùng đất đó ko được <font color="Red">sở</font> lấy về, sau nhiều lần như thế thì tài nguyên đất của sở càng ngày càng ít đi, hiện tượng này gọi mà memory leak<br>
+<br>
+ <font size="2"><br>
+Sau khi chương trình kết thúc , việc bộ nhớ xin cấp phát có được tự giải phóng hay ko thì tùy thuộc vào cài đặt của trình biên dịch và hệ điều hành. Chúng ta có 2 khả năng </font>  <font size="2"><span style="font-family: Symbol">·         </span>Khả năng 1 : trong phần khởi động  (trước khi vào function main() ), program xin  một khối memory cuả system gọi là XXXX  và mỗi lần malloc được gọi thì cấp pháp một phần memory cuả XXXX cho malloc. Do đó, khi program exit thì trả XXXX về cho system là xong. Trong trường hợp này không bị mất memory</font><br>
+  <font size="2"><span style="font-family: Symbol">·         </span>Khả năng 2 : mỗi lần malloc được gọi thì xin memory từ system . Trường hợp này có thể memory không trả về cho system. Lúc này chương trình sẽ bị gọi là có memory leak.Như vậy sau vài lần chạy sẽ ko còn memory để cấp phát nữa</font><br>
+<font size="2"><br>
+</font><br>
+Đó là giải thích tại sao có nhiều chương trình chạy xong, thoát ra rồi, f5 mấy lần rồi mà máy vẫn cứ ì ì ì ra..........<br>
+<br>
+<br>
+5. Trên đây là cách lý thuyết cơ bản dành cho các bạn mới học, nó được áp dụng đối với lập trình trên console, (cấp sở tài nguyên thôi)<br>
+trong windows nó cũng như thế thôi nhưng mà nó có thêm nhiều quy tắc rằng buộc chặt chẽ hơn rất nhiều (cấp bộ tài nguyên và môi trường, phải khác chứ)<br>
+<br>
+Muốn biết thêm về bộ nhớ thì xem chap 1 của tut dưới đây  : <br>
+ 				 					<a href="http://forums.congdongcviet.com/showthread.php?t=26928" target="_blank"><img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/icon1.gif" border="0" alt=""></a> 				 				<b><a href="http://forums.congdongcviet.com/showthread.php?t=26928" target="_blank">Portable Executable File Format</a></b><br>
+<br>
+<br>
+<br>
+<br>
+<font color="Red"><font size="4">Update 9/9/10</font></font><br>
+Câu hỏi<br>
+<font color="Red">Nhân tiện cho em hỏi, nếu mình khai báo 1 mảng có thể có rất nhiều phần tử thì bộ nhớ của nó sẽ được lấy từ đâu ra (Ổ cứng, Ram.... Hay là một cái gì đó mà em không biết :P). Khi em khai báo 1 mảng int a[1000000] thì nó báo là "Array size too large". Mới có 1000000 phần tử nó đã coi là lớn thì những bài toán thực tế vài triệu phần tử liền thì phải làm thế nào? hix</font><br>
+Trả lời<br>
+int a[1000000] ; khai báo ở đâu ?<br>
+em khai báo ở sở (tức là khai báo dạng local, trong các hàm )thì sở nó xin vùng nhớ ở stack segment, mà stack segment thì đây (trong ảnh, nhỏ gọn thế này, liệu nó có cho em vùng lớn thế kia ko 1000000*4byte)<br>
+<a href="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/attachment(2).php" target="_blank"><img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/mm01.jpg" border="0" alt=""></a> Click vào ảnh để xem hình đẩy đủ<br>
+<br>
+<br>
+đối với các bài toán cần nhiều vùng nhớ 1 cách kinh khủng thì ta thường dùng các hàm api về malloc để lấy các vùng nhớ ở free store được bộ (os-hệ điều hành) cấp phát, <br>
+<br>
+và 1 điều ko kém phần quan trọng đó là ta nên xây dựng những giải thuật thật thông minh chứ ko phải là load tràn hết lên bộ nhớ<br>
+ví dụ xây dựng trước các phương pháp xử lý các sự kiện có thể xảy ra <br>
+giả sử như này, tôi có 1 khối thông tin, để bắt sự kiện "tìm nhân viên mới vào công ti", tôi lập ra 1 temponary, mỗi khi chèn thằng mới vào khối thông tin của tôi, tôi gán thằng temponary này bằng với nhân viên mới, như thế tôi đã có 1 phương pháp sử lí sự kiện tốt rồi đúng ko ???<br>
+<br>
+<br>
+<font color="Red"><font size="4">Update 10/9/10</font></font><br>
+câu hỏi<br>
+<br>
+<font color="Red">Cấp phát động thì nó lấy bộ nhớ từ đâu vậy cà.<br>
+"data segment"<br>
+Là cái gì thế em dịch là dữ liệu phân đoạn, nghĩa là sao đây, anh langman bận rộn thế :P:P</font><br>
+a. theo giáo trình đại học FPT về OS,theo giáo trình thầy phạm văn ất về tổ thức bộ nhớ,  khi tiến trình chạy , bộ nhớ được mô hình thành 4 phần như sau <br>
+<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/attachment.php" border="0" alt=""><br>
+<br>
+(trên thực tế, trong windows, môi trường ảo hóa cụ thể này thì có cách tổ chức phức tạp hơn phát triển từ lý thuyết này)<br>
+b. đang bận ôn thi ko có time online được<br>
+<br>
+<br>
+<font color="Red"><font size="4">Update 20/11/10</font></font><br>
+Câu hỏi của quyết 1991 : sự khác nhau giữa malloc và new?<br>
+<br>
+<br>
+new và malloc khác nhau cực cực kì nhiều đó các pạn à<br>
+sơ bộ như sau, chưa phân tích kĩ<br>
+malloc là <font color="Red">hàm</font>, cấp phát trả về kiểu <font color="Red">void *</font>, malloc thì <font color="Red">ko gọi hàm tạo</font><br>
+free ko gọi hàm hủy<br>
+malloc trả về NULL nếu thất bại<br>
+<br>
+new là toán tử, new gọi hàm tạo, new có thể được đa năng hóa (nạp chồng), <br>
+new ném ra exception nếu thất bại<br>
+toán tử new và toán tử new[] ko có khả năng realloc<br>
+<br>
+<br>
+<br>
+<font size="4"><font color="Red">Update tiếp câu hỏi hay 2/3/2010</font></font><br>
+<div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			
+				<div class="bbcode_postedby">
+					<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/quote_icon.png" alt="Trích dẫn" title="Trích dẫn"> Nguyên bản được gửi bởi <strong>first_pace</strong>
+					<a href="http://diendan.congdongcviet.com/showthread.php?s=15147321b478a500671c955a4544ea73&amp;p=211084#post211084" rel="nofollow"><img class="inlineimg" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/viewpost-right.png" alt="Xem bài viết" title="Xem bài viết"></a>
+				</div>
+				<div class="message">Anh cho em hỏi rõ hơn về đoạn này. Khi giải phóng rồi mà a và b vẫn trỏ đến mảnh đất đó thì nghĩa là nó vẫn có quyền kiểm soát khu vực đó, như vậy thì sao biết là khi đó đất là available đựoc ạ. Em có test một đoạn chương trình như sau.<br>
+
+	<div class="bbcode_container bbcode_container_code clearfix">
+		<div class="bbcode_description clearfix" style="display: block">
+			<div class="language">C Code:</div>
+			<div class="actions">
+				<a href="http://congdongcviet.com/" onclick="selectCode(&#39;cviet_bbcode_36808&#39;); return false;">Select All</a> | <a href="http://congdongcviet.com/" onclick="expandCode(&#39;cviet_bbcode_36808&#39;); return false;">Show/Hide</a>
+			</div>
+		</div>
+		<div class="bbcode_code"><div class="c cviet_bbcode" id="cviet_bbcode_36808"><ol><li class="li1"><div class="de1"><span class="co2">#include &lt;iostream&gt;</span></div></li><li class="li1 alt"><div class="de1">using namespace std<span class="sy0">;</span></div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1 alt"><div class="de1"><span class="kw5">int</span> main<span class="br0">(</span><span class="br0">)</span><span class="br0">{</span></div></li><li class="li2"><div class="de2">&nbsp; &nbsp; <span class="kw5">int</span> <span class="sy0">*</span>p<span class="sy0">;</span></div></li><li class="li1 alt"><div class="de1">&nbsp; &nbsp; </div></li><li class="li1"><div class="de1">&nbsp; &nbsp; p<span class="sy0">=</span> new <span class="kw5">int</span><span class="br0">[</span><span class="nu0">2</span><span class="br0">]</span><span class="sy0">;</span> <span class="co1">// xin chính quyền cấp hai khu đất</span></div></li><li class="li1 alt"><div class="de1">&nbsp; &nbsp; p<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span><span class="sy0">=</span><span class="nu0">8888</span><span class="sy0">;</span> <span class="co1">// khu này trồng rau</span></div></li><li class="li1"><div class="de1">&nbsp; &nbsp; p<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span><span class="sy0">=</span><span class="nu0">9999</span><span class="sy0">;</span> <span class="co1">// khu này nuôi lợn</span></div></li><li class="li2"><div class="de2">&nbsp; &nbsp; cout <span class="sy0">&lt;&lt;</span> p<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy0">&lt;&lt;</span> <span class="st0">" &nbsp;"</span> <span class="sy0">&lt;&lt;</span> p<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy0">&lt;&lt;</span> endl<span class="sy0">;</span> <span class="co1">// xem tình hình ruộng rau và chuồng lợn</span></div></li><li class="li1"><div class="de1">&nbsp; &nbsp; </div></li><li class="li1 alt"><div class="de1">&nbsp; &nbsp; delete <span class="br0">[</span><span class="br0">]</span> p<span class="sy0">;</span> <span class="co1">// trả lại đất cho chính quyền</span></div></li><li class="li1"><div class="de1">&nbsp; &nbsp; cout <span class="sy0">&lt;&lt;</span> p<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy0">&lt;&lt;</span> <span class="st0">" &nbsp;"</span> <span class="sy0">&lt;&lt;</span> p<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy0">&lt;&lt;</span> endl<span class="sy0">;</span> <span class="co1">// xem chính quyền làm gì với ruộng rau và chuồng lợn</span></div></li><li class="li1 alt"><div class="de1">&nbsp; &nbsp; </div></li><li class="li2"><div class="de2">&nbsp; &nbsp; <a target="_blank" href="http://cppreference.com/stdother/system.html"><span class="kw20">system</span></a><span class="br0">(</span><span class="st0">"pause"</span><span class="br0">)</span><span class="sy0">;</span></div></li><li class="li1 alt"><div class="de1">&nbsp; &nbsp; <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span></div></li><li class="li1"><div class="de1"><span class="br0">}</span></div></li></ol></div></div>
+	</div>kết quả là em không thấy ruộng rau và chuồng lợn đâu nữa <img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/dont_know.gif" border="0" alt="" title="I don&#39;t know" class="inlineimg"> <br>
+    <br>
+<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/picture.php" border="0" alt=""><br>
+em nghĩ có hai nguyên nhân<br>
+<ul><li style=""><b>Thứ nhất:</b> chính quyền đã làm gì đó với ruộng rau và chuông lợn của em (sửa đổi nội dung của vùng nhớ mà trước đó p trỏ tới, thay đổi 8888 và 9999) nhưng như anh nói nó không can thiệp vào.</li><li style=""><b>Thứ hai: </b>em nhìn nhầm sang một khu đất khác chứ không phải khu đất lúc trước nữa. Nhưng anh nói sau khi bị tứoc đoạt quyền sử dụng đất thì em vẫn nhìn vào khu đất đó (p vẫn trỏ tới vùng nhớ mà trước đó nó trỏ tới)</li></ul><br>
+Nếu thế thì em không giải thích được kết quả của chương trình trên. Anh giải thích kỹ hơn giùm em với. Cám ơn anh <img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/biggrin.png" border="0" alt="" title="big grin" class="inlineimg"></div>
+			
+		</div>
+	</div>
+</div><font color="Red"><br>
+xin khẳng định lại 1 lần nữa, e đã hiểu hoàn toàn sai lầm, <font size="4">FREE và DEL ko bao giờ thay đổi giá trị của con trỏ</font>, hãy phân việt rõ ràng giữa giá trị của con trỏ và giá trị nó trỏ đến<br>
+<br>
+free nó là <font color="Red">void free(void *mem)</font> vậy thì xin hỏi con trỏ mem làm sao có thể thay đổi giá trị qua hàm này (xin hãy đọc bài bản chất con trỏ trong C để hiểu sâu hơn vấn đề này, tip : phân biệt rõ ràng giữa giá trị của mem và giá trị của thằng mà mem trỏ tới)<br>
+<br>
+<br>
+check lại đoạn code sau đây<br>
+</font>
+	<div class="bbcode_container bbcode_container_code clearfix">
+		<div class="bbcode_description clearfix" style="display: block">
+			<div class="language">C++ Code:</div>
+			<div class="actions">
+				<a href="http://congdongcviet.com/" onclick="selectCode(&#39;cviet_bbcode_36943&#39;); return false;">Select All</a> | <a href="http://congdongcviet.com/" onclick="expandCode(&#39;cviet_bbcode_36943&#39;); return false;">Show/Hide</a>
+			</div>
+		</div>
+		<div class="bbcode_code"><div class="cpp cviet_bbcode" id="cviet_bbcode_36943"><ol><li class="li1"><div class="de1"><span class="co2">#include &lt;iostream&gt;</span></div></li><li class="li1 alt"><div class="de1"><span class="kw1">using</span> <span class="kw1">namespace</span> std<span class="sy4">;</span></div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1 alt"><div class="de1"><span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span><span class="br0">{</span></div></li><li class="li2"><div class="de2">&nbsp; &nbsp; <span class="kw4">int</span> <span class="sy2">*</span>p<span class="sy4">;</span></div></li><li class="li1 alt"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">&nbsp; &nbsp; p<span class="sy1">=</span> <span class="kw3">new</span> <span class="kw4">int</span><span class="br0">[</span><span class="nu0">2</span><span class="br0">]</span><span class="sy4">;</span> <span class="co1">// xin chính quyền cấp hai khu đất</span></div></li><li class="li1 alt"><div class="de1">&nbsp; &nbsp; p<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span><span class="sy1">=</span><span class="nu0">8888</span><span class="sy4">;</span> <span class="co1">// khu này trồng rau</span></div></li><li class="li1"><div class="de1">&nbsp; &nbsp; p<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span><span class="sy1">=</span><span class="nu0">9999</span><span class="sy4">;</span> <span class="co1">// khu này nuôi lợn</span></div></li><li class="li2"><div class="de2">&nbsp; &nbsp; <a target="_blank" href="http://www.cplusplus.com/reference/iostream/cout.html"><span class="kw30">cout</span></a> <span class="sy1">&lt;&lt;</span> p<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy1">&lt;&lt;</span> <span class="st0">" &nbsp;"</span> <span class="sy1">&lt;&lt;</span> p<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy1">&lt;&lt;</span> endl<span class="sy4">;</span> <span class="co1">// giá trị trỏ đến</span></div></li><li class="li1"><div class="de1">&nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"%x<span class="es1">\n</span>"</span>,p<span class="br0">)</span><span class="sy4">;</span> &nbsp; &nbsp; <span class="co1">// giá trị của p &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span></div></li><li class="li1 alt"><div class="de1">&nbsp; &nbsp; </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1 alt"><div class="de1">&nbsp; &nbsp; <span class="kw3">delete</span> <span class="br0">[</span><span class="br0">]</span> p<span class="sy4">;</span> <span class="co1">// trả lại đất cho chính quyền</span></div></li><li class="li2"><div class="de2">&nbsp; &nbsp; <a target="_blank" href="http://www.cplusplus.com/reference/iostream/cout.html"><span class="kw30">cout</span></a> <span class="sy1">&lt;&lt;</span> p<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy1">&lt;&lt;</span> <span class="st0">" &nbsp;"</span> <span class="sy1">&lt;&lt;</span> p<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy1">&lt;&lt;</span> endl<span class="sy4">;</span> <span class="co1">// xem chính quyền làm gì với ruộng rau và chuồng lợn</span></div></li><li class="li1 alt"><div class="de1">&nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"%x<span class="es1">\n</span>"</span>,p<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// giá trị của p &nbsp;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span></div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1 alt"><div class="de1">&nbsp; &nbsp; system<span class="br0">(</span><span class="st0">"pause"</span><span class="br0">)</span><span class="sy4">;</span></div></li><li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">return</span> <span class="nu0">0</span><span class="sy4">;</span></div></li><li class="li2"><div class="de2"><span class="br0">}</span></div></li></ol></div></div>
+	</div><br>
+<br>
+<br>
+điều nữa<br>
+<div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			
+				Giải bộ nhớ hoạt động như thế nào : bản chất là trả lại quyền sử dụng<br>
+khi này :<br>
++ <font color="Magenta">sở sẽ thu lại quyền sử dụng đất của anh, thế là  đủ rồi, sở ko cần phải động chạm sửa chữa lại gì vùng đất đó. Nên khi đó  dù vùng đất đó đã được giải phóng nhưng mà hoa màu của a ta trên đó thì  vẫn còn, ko có biến mất được</font><br>
+<br>
+điều này giải thích tại sao khi mà nhiều bạn thử giải phóng bộ nhớ rồi,  delete rồi, free rồi mà khi in thử ra vẫn thấy kết quả như thế .<br>
+<font color="Magenta">đơn giản thôi, a ta trả lại mảnh đất đó, nhưng  chưa có ai thuê nó cả, chưa có ai sử dụng nên hôm sau ra xem thử thì nó  vẫn như hôm trước khi a ta trả lại</font>
+			
+		</div>
+	</div>
+</div>giả sử ngay khi em vừa trả , có thằng khác nó đến thuê luôn thì lập tức nó bỏ hoa màu của em đi, trồng hoa màu khác thì em quay lại làm gì còn thời đại này nhanh như ăn cắp ý mà<br>
+<br>
+(windows có bao nhiêu process, thread,? nên việc bị thuê ngay lập tức là quá bình thường, em à, đặc biệt  nếu là hàng nằm trên stack thì thay đổi liên tục là bt)<br>
+<br>
+<br>
+More :<br>
+<div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			
+				<div class="bbcode_postedby">
+					<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/quote_icon.png" alt="Trích dẫn" title="Trích dẫn"> Nguyên bản được gửi bởi <strong>first_pace</strong>
+					<a href="http://diendan.congdongcviet.com/showthread.php?s=15147321b478a500671c955a4544ea73&amp;p=211129#post211129" rel="nofollow"><img class="inlineimg" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/viewpost-right.png" alt="Xem bài viết" title="Xem bài viết"></a>
+				</div>
+				<div class="message">Thanks anh, giá trị của con trỏ và giá trị của vùng nhớ mà con trỏ trỏ tới thì em biết. Em chỉ thắc mắc không hiểu tại sao khi kiểm tra lại thì giá trị của vùng nhớ lại bị thay đổi (8888 và 9999) nên em với đặt ra hai khả năng:<br>
+<ul><li style="">Thứ nhất: chính quyền đã làm gì đó với ruộng rau và chuông lợn của em (sửa đổi nội dung của vùng nhớ mà trước đó p trỏ tới, thay đổi 8888 và 9999) nhưng như anh nói nó không can thiệp vào.</li><li style="">Thứ hai: em nhìn nhầm sang một khu đất khác chứ không phải khu đất lúc trước nữa. Nhưng anh nói sau khi bị tứoc đoạt quyền sử dụng đất thì em vẫn nhìn vào khu đất đó (p vẫn trỏ tới vùng nhớ mà trước đó nó trỏ tới)</li></ul><br>
+Và theo câu trả lời của anh nó là khả năng thứ nhất, bị thằng nào đó thuê lại ngay sau đó:<br>
+<br>
+Thanks anh đã giải đáp đoạn này, em không biết là nó lại bị thuê luôn như thế, em hiểu rồi <img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/biggrin.png" border="0" alt="" title="big grin" class="inlineimg"></div>
+			
+		</div>
+	</div>
+</div>khi em cài hook bắt các API trên window sẽ thấy LocalAlloc, RemoteAlloc,GlobalAlloc... được xài rất nhiều lần trên /1s chứ ko phải  (ví dụ nhỏ xem ở hình dưới , đó là chỉ trong 1 tiến trình firefox thôi đó, chứ ko phải xét trên 5x process đang chạy)<br>
+<br>
+<br>
+tuy nhiên đối với các môi trường cũ, đặc biệt như trên borland C for dos thì hiện tượng free rồi mà còn tài nguyên rất hay xảy ra, có rât rất nhiều người hiểu lầm là lỗi, rồi ... (đã có rất nhiều câu hỏi như thế trong box thắc mắc C). đó là lý do vì sau a phải nhấn mạnh điều đó<br>
+<br>
+<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/attachment(1).php" border="0" alt=""></blockquote>
+				</div>
+				
+				<div class="attachments">
+					
+						<fieldset class="postcontent">
+							<legend><img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/paperclip.png" class="inlineimg" alt="Attached Thumbnails" title="Attached Thumbnails"> Attached Thumbnails</legend>
+							
+<a href="http://diendan.congdongcviet.com/attachment.php?s=15147321b478a500671c955a4544ea73&amp;attachmentid=3522&amp;d=1284123766" rel="nofollow" id="attach3522"><img class="thumbnail" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/bonho.jpg" alt="bonho.jpg" title="bonho.jpg"></a>
+&nbsp;
+
+						</fieldset>
+					
+					
+					
+					
+					
+				</div>
+				<!-- / attachments -->
+				
+			</div>
+			
+				
+				<div id="ad_thread_first_post_content"><div style="height: 113px; padding-top: 20px;">
+<!-- CViet FirtPost Responsive -->
+<ins class="adsbygoogle" style="display: block; height: 113px;" data-ad-client="ca-pub-2525409910423371" data-ad-slot="6602097682" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_2_expand" style="display: inline-table; border: none; height: 113px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 1200px; background-color: transparent;"><ins id="aswift_2_anchor" style="display: block; border: none; height: 113px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 1200px; background-color: transparent; overflow: hidden;"><iframe width="1200" height="113" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left: 0px; position: absolute; top: 0px; width: 1200px; height: 113px;" __idm_frm__="24" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/saved_resource(3).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></div>
+			
+			
+			
+			<!-- edit note -->
+			<blockquote class="postcontent lastedited">
+				
+					Đã được chỉnh sửa lần cuối bởi langman : 22-10-2012 lúc <span class="time">09:54 PM</span>.
+				
+				
+					<span class="reason">Lý do:</span> Update
+				
+			</blockquote>
+			<!-- / edit note -->
+			
+		</div>
+		
+		<div class="signaturecontainer">
+			
+			
+			<blockquote class="signature restore">^_<i>,</i>^<br>
+<br>
+Facebook : <a href="https://www.facebook.com/langmaninternet" target="_blank" rel="nofollow">https://www.facebook.com/langmaninternet</a><br>
+<br>
+Bùi Tấn Quang<br>
+<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/sigpic14971_6.gif" alt="" border="0"></blockquote>
+			
+		</div>
+		
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols clearfix">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_163037" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/progress.gif" alt="">
+				
+				
+				
+					<a id="qrwq_163037" class="newreply" href="http://diendan.congdongcviet.com/newreply.php?s=15147321b478a500671c955a4544ea73&amp;do=newreply&amp;p=163037" rel="nofollow" title="Trả lời cùng với trích dẫn"><img id="quoteimg_163037" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/clear.gif" alt="Trả lời cùng với trích dẫn" title="Trả lời cùng với trích dẫn">  Trả lời cùng với trích dẫn</a> 
+				
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</span>
+		</div>
+	</div>
+	<hr>
+</li>
+
+<li class="postbit postbitim postcontainer old" id="post_163062">
+	<div class="postdetails_noavatar">
+		<div class="posthead clearfix">
+			<span class="postdate old">
+			
+				<span class="date">09-09-2010,&nbsp;<span class="time">09:00 AM</span></span>
+			
+			</span>
+			<span class="nodecontrols">
+			
+				<a name="post163062" href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp?s=15147321b478a500671c955a4544ea73&amp;p=163062#post163062" class="postcounter">#2</a><a id="postcount163062" name="2"></a>
+			
+			
+			
+			</span>
+		</div>
+		<div class="userinfo clearfix">
+			<div class="contact">
+				
+					<a class="postuseravatarlink" href="http://diendan.congdongcviet.com/members/u64242::tieuyeu-ht91.cpp?s=15147321b478a500671c955a4544ea73" title="tieuyeu_ht91 là offline">
+						
+							<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/avatar64242_2.gif" alt="Avatar của tieuyeu_ht91" title="Avatar của tieuyeu_ht91">
+						
+					</a>
+				
+				<div class="username_container">
+					
+						
+<div class="popupmenu memberaction" id="yui-gen14">
+	<a class="username offline popupctrl" href="http://diendan.congdongcviet.com/members/u64242::tieuyeu-ht91.cpp?s=15147321b478a500671c955a4544ea73" title="tieuyeu_ht91 là offline" id="yui-gen16">tieuyeu_ht91</a>
+	<ul class="popupbody memberaction_body" id="yui-gen15">
+		<li class="left">
+			<a href="http://diendan.congdongcviet.com/members/u64242::tieuyeu-ht91.cpp?s=15147321b478a500671c955a4544ea73" class="siteicon_profile">Xem hồ sơ</a>
+		</li>
+		<li class="right">
+			<a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=finduser&amp;userid=64242&amp;contenttype=vBForum_Post" class="siteicon_forum" rel="nofollow">View Forum Threads</a>
+		</li>
+		<li class="right">
+			<a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=finduser&amp;userid=64242&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">View Forum Posts</a>
+		</li>
+		
+		<li class="left">
+			<a href="http://diendan.congdongcviet.com/private.php?s=15147321b478a500671c955a4544ea73&amp;do=newpm&amp;u=64242" class="siteicon_message" rel="nofollow">
+				Tin nhắn
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/user-offline.png" alt="tieuyeu_ht91 là offline" border="0" title="tieuyeu_ht91 là offline">
+
+					
+					<span class="usertitle">
+						Thành viên chính thức
+					</span>
+					
+						<span class="rank"><img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/registered_1.png" alt="" border=""></span>
+					
+
+					
+					
+					
+						<div class="imlinks">
+							    
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Ngày gia nhập</dt> <dd>08 2010</dd>
+						
+						
+						<dt>Bài viết</dt> <dd>58</dd>	
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+	<div class="postbody">
+		
+		<div class="postrow">
+			<h2 class="posttitle icon">
+				
+			</h2>
+			<div class="content">
+				<div id="post_message_163062">
+					<blockquote class="postcontent restore">Hay quá nhỉ, ví dụ sinh động ghê. hi hi.<br>
+Nhân tiện cho em hỏi, nếu mình khai báo 1 mảng có thể có rất nhiều phần tử thì bộ nhớ của nó sẽ được lấy từ đâu ra (Ổ cứng, Ram.... Hay là một cái gì đó mà em không biết :P). Khi em khai báo 1 mảng int a[1000000] thì nó báo là "Array size too large". Mới có 1000000 phần tử nó đã coi là lớn thì những bài toán thực tế vài triệu phần tử liền thì phải làm thế nào? hix<br>
+Và cái "Program heap size" có phải là bộ nhớ để cấp phát động không ạ? Mình chỉ được cấp phát tối đa là 640KB? <br>
+Em đang dùng BC 3.0<br>
+Cám ơn anh nhé (em xem mấy cái chap unikey của anh mà không hiểu gì. hix)</blockquote>
+				</div>
+				
+			</div>
+			
+			
+			
+			<!-- edit note -->
+			<blockquote class="postcontent lastedited">
+				
+					Đã được chỉnh sửa lần cuối bởi tieuyeu_ht91 : 09-09-2010 lúc <span class="time">09:07 AM</span>.
+				
+				
+			</blockquote>
+			<!-- / edit note -->
+			
+		</div>
+		
+		<div class="signaturecontainer">
+			
+			
+			<blockquote class="signature restore"><font size="4">Sẽ không buồn vì những điều ta chưa làm được...</font></blockquote>
+			
+		</div>
+		
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols clearfix">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_163062" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/progress.gif" alt="">
+				
+				
+				
+					<a id="qrwq_163062" class="newreply" href="http://diendan.congdongcviet.com/newreply.php?s=15147321b478a500671c955a4544ea73&amp;do=newreply&amp;p=163062" rel="nofollow" title="Trả lời cùng với trích dẫn"><img id="quoteimg_163062" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/clear.gif" alt="Trả lời cùng với trích dẫn" title="Trả lời cùng với trích dẫn">  Trả lời cùng với trích dẫn</a> 
+				
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</span>
+		</div>
+	</div>
+	<hr>
+</li>
+
+<li class="postbit postbitim postcontainer old" id="post_163099">
+	<div class="postdetails_noavatar">
+		<div class="posthead clearfix">
+			<span class="postdate old">
+			
+				<span class="date">09-09-2010,&nbsp;<span class="time">12:18 PM</span></span>
+			
+			</span>
+			<span class="nodecontrols">
+			
+				<a name="post163099" href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp?s=15147321b478a500671c955a4544ea73&amp;p=163099#post163099" class="postcounter">#3</a><a id="postcount163099" name="3"></a>
+			
+			
+			
+			</span>
+		</div>
+		<div class="userinfo clearfix">
+			<div class="contact">
+				
+					<a class="postuseravatarlink" href="http://diendan.congdongcviet.com/members/u14971::langman.cpp?s=15147321b478a500671c955a4544ea73" title="langman là offline">
+						
+							<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/avatar14971_6.gif" alt="Avatar của langman" title="Avatar của langman">
+						
+					</a>
+				
+				<div class="username_container">
+					
+						
+<div class="popupmenu memberaction" id="yui-gen17">
+	<a class="username offline popupctrl" href="http://diendan.congdongcviet.com/members/u14971::langman.cpp?s=15147321b478a500671c955a4544ea73" title="langman là offline" id="yui-gen19"><span style="color: #FF6800;">langman</span></a>
+	<ul class="popupbody memberaction_body" id="yui-gen18">
+		<li class="left">
+			<a href="http://diendan.congdongcviet.com/members/u14971::langman.cpp?s=15147321b478a500671c955a4544ea73" class="siteicon_profile">Xem hồ sơ</a>
+		</li>
+		<li class="right">
+			<a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=finduser&amp;userid=14971&amp;contenttype=vBForum_Post" class="siteicon_forum" rel="nofollow">View Forum Threads</a>
+		</li>
+		<li class="right">
+			<a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=finduser&amp;userid=14971&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">View Forum Posts</a>
+		</li>
+		
+		<li class="left">
+			<a href="http://diendan.congdongcviet.com/private.php?s=15147321b478a500671c955a4544ea73&amp;do=newpm&amp;u=14971" class="siteicon_message" rel="nofollow">
+				Tin nhắn
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/user-offline.png" alt="langman là offline" border="0" title="langman là offline">
+
+					
+					<span class="usertitle">
+						Thành viên mới
+					</span>
+					
+						<span class="rank"><img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/moderator_4.png" alt="" border=""></span>
+					
+
+					
+					
+					
+						<div class="imlinks">
+							    
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Ngày gia nhập</dt> <dd>06 2007</dd>
+						<dt>Nơi ở</dt> <dd>C:\WINDOWS\system32\dllcache\</dd>
+						
+						<dt>Bài viết</dt> <dd>3,007</dd>	
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+	<div class="postbody">
+		
+		<div class="postrow">
+			<h2 class="posttitle icon">
+				
+			</h2>
+			<div class="content">
+				<div id="post_message_163099">
+					<blockquote class="postcontent restore">int a[1000000] ; khai báo ở đâu ?<br>
+em khai báo ở sở (tức là khai báo dạng local, trong các hàm )thì sở nó xin vùng nhớ ở stack segment, mà stack segment thì đây (trong ảnh, nhỏ gọn thế này, liệu nó có cho em vùng lớn thế kia ko 1000000*4byte)<br>
+<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/attachment(2).php" border="0" alt=""></blockquote>
+				</div>
+				
+			</div>
+			
+			
+			
+		</div>
+		
+		<div class="signaturecontainer">
+			
+			
+			<blockquote class="signature restore">^_<i>,</i>^<br>
+<br>
+Facebook : <a href="https://www.facebook.com/langmaninternet" target="_blank" rel="nofollow">https://www.facebook.com/langmaninternet</a><br>
+<br>
+Bùi Tấn Quang<br>
+<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/sigpic14971_6.gif" alt="" border="0"></blockquote>
+			
+		</div>
+		
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols clearfix">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_163099" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/progress.gif" alt="">
+				
+				
+				
+					<a id="qrwq_163099" class="newreply" href="http://diendan.congdongcviet.com/newreply.php?s=15147321b478a500671c955a4544ea73&amp;do=newreply&amp;p=163099" rel="nofollow" title="Trả lời cùng với trích dẫn"><img id="quoteimg_163099" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/clear.gif" alt="Trả lời cùng với trích dẫn" title="Trả lời cùng với trích dẫn">  Trả lời cùng với trích dẫn</a> 
+				
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</span>
+		</div>
+	</div>
+	<hr>
+</li>
+
+<li class="postbit postbitim postcontainer old" id="post_163130">
+	<div class="postdetails_noavatar">
+		<div class="posthead clearfix">
+			<span class="postdate old">
+			
+				<span class="date">09-09-2010,&nbsp;<span class="time">03:54 PM</span></span>
+			
+			</span>
+			<span class="nodecontrols">
+			
+				<a name="post163130" href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp?s=15147321b478a500671c955a4544ea73&amp;p=163130#post163130" class="postcounter">#4</a><a id="postcount163130" name="4"></a>
+			
+			
+			
+			</span>
+		</div>
+		<div class="userinfo_noavatar clearfix">
+			<div class="contact">
+				
+					<a class="postuseravatarlink" href="http://diendan.congdongcviet.com/members/u20888::nthung.cpp?s=15147321b478a500671c955a4544ea73" title="nthung là offline">
+						<img alt="No Avatar" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/NoAvatar.png" title="No Avatar">
+					</a>
+				
+				<div class="username_container">
+					
+						
+<div class="popupmenu memberaction" id="yui-gen20">
+	<a class="username offline popupctrl" href="http://diendan.congdongcviet.com/members/u20888::nthung.cpp?s=15147321b478a500671c955a4544ea73" title="nthung là offline" id="yui-gen22">nthung</a>
+	<ul class="popupbody memberaction_body" id="yui-gen21">
+		<li class="left">
+			<a href="http://diendan.congdongcviet.com/members/u20888::nthung.cpp?s=15147321b478a500671c955a4544ea73" class="siteicon_profile">Xem hồ sơ</a>
+		</li>
+		<li class="right">
+			<a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=finduser&amp;userid=20888&amp;contenttype=vBForum_Post" class="siteicon_forum" rel="nofollow">View Forum Threads</a>
+		</li>
+		<li class="right">
+			<a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=finduser&amp;userid=20888&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">View Forum Posts</a>
+		</li>
+		
+		<li class="left">
+			<a href="http://diendan.congdongcviet.com/private.php?s=15147321b478a500671c955a4544ea73&amp;do=newpm&amp;u=20888" class="siteicon_message" rel="nofollow">
+				Tin nhắn
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/user-offline.png" alt="nthung là offline" border="0" title="nthung là offline">
+
+					
+					<span class="usertitle">
+						Thành viên nhiệt tình
+					</span>
+					
+						<span class="rank"><img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/registered_2.png" alt="" border=""></span>
+					
+
+					
+					
+					
+						<div class="imlinks">
+							    
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Ngày gia nhập</dt> <dd>01 2008</dd>
+						
+						
+						<dt>Bài viết</dt> <dd>240</dd>	
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+	<div class="postbody">
+		
+		<div class="postrow">
+			<h2 class="posttitle icon">
+				
+			</h2>
+			<div class="content">
+				<div id="post_message_163130">
+					<blockquote class="postcontent restore">thanks,<br>
+hay quá,  xin hỏit dùng cái phần mềm gì để theo chụp được cái image như cậu</blockquote>
+				</div>
+				
+			</div>
+			
+			
+			
+			<!-- edit note -->
+			<blockquote class="postcontent lastedited">
+				
+					Đã được chỉnh sửa lần cuối bởi nthung : 09-09-2010 lúc <span class="time">04:04 PM</span>.
+				
+				
+			</blockquote>
+			<!-- / edit note -->
+			
+		</div>
+		
+		<div class="signaturecontainer">
+			
+			
+			<blockquote class="signature restore">Time</blockquote>
+			
+		</div>
+		
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols clearfix">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_163130" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/progress.gif" alt="">
+				
+				
+				
+					<a id="qrwq_163130" class="newreply" href="http://diendan.congdongcviet.com/newreply.php?s=15147321b478a500671c955a4544ea73&amp;do=newreply&amp;p=163130" rel="nofollow" title="Trả lời cùng với trích dẫn"><img id="quoteimg_163130" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/clear.gif" alt="Trả lời cùng với trích dẫn" title="Trả lời cùng với trích dẫn">  Trả lời cùng với trích dẫn</a> 
+				
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</span>
+		</div>
+	</div>
+	<hr>
+</li>
+
+<li class="postbit postbitim postcontainer old" id="post_163148">
+	<div class="postdetails_noavatar">
+		<div class="posthead clearfix">
+			<span class="postdate old">
+			
+				<span class="date">09-09-2010,&nbsp;<span class="time">05:00 PM</span></span>
+			
+			</span>
+			<span class="nodecontrols">
+			
+				<a name="post163148" href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp?s=15147321b478a500671c955a4544ea73&amp;p=163148#post163148" class="postcounter">#5</a><a id="postcount163148" name="5"></a>
+			
+			
+			
+			</span>
+		</div>
+		<div class="userinfo clearfix">
+			<div class="contact">
+				
+					<a class="postuseravatarlink" href="http://diendan.congdongcviet.com/members/u64242::tieuyeu-ht91.cpp?s=15147321b478a500671c955a4544ea73" title="tieuyeu_ht91 là offline">
+						
+							<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/avatar64242_2.gif" alt="Avatar của tieuyeu_ht91" title="Avatar của tieuyeu_ht91">
+						
+					</a>
+				
+				<div class="username_container">
+					
+						
+<div class="popupmenu memberaction" id="yui-gen23">
+	<a class="username offline popupctrl" href="http://diendan.congdongcviet.com/members/u64242::tieuyeu-ht91.cpp?s=15147321b478a500671c955a4544ea73" title="tieuyeu_ht91 là offline" id="yui-gen25">tieuyeu_ht91</a>
+	<ul class="popupbody memberaction_body" id="yui-gen24">
+		<li class="left">
+			<a href="http://diendan.congdongcviet.com/members/u64242::tieuyeu-ht91.cpp?s=15147321b478a500671c955a4544ea73" class="siteicon_profile">Xem hồ sơ</a>
+		</li>
+		<li class="right">
+			<a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=finduser&amp;userid=64242&amp;contenttype=vBForum_Post" class="siteicon_forum" rel="nofollow">View Forum Threads</a>
+		</li>
+		<li class="right">
+			<a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=finduser&amp;userid=64242&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">View Forum Posts</a>
+		</li>
+		
+		<li class="left">
+			<a href="http://diendan.congdongcviet.com/private.php?s=15147321b478a500671c955a4544ea73&amp;do=newpm&amp;u=64242" class="siteicon_message" rel="nofollow">
+				Tin nhắn
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/user-offline.png" alt="tieuyeu_ht91 là offline" border="0" title="tieuyeu_ht91 là offline">
+
+					
+					<span class="usertitle">
+						Thành viên chính thức
+					</span>
+					
+						<span class="rank"><img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/registered_1.png" alt="" border=""></span>
+					
+
+					
+					
+					
+						<div class="imlinks">
+							    
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Ngày gia nhập</dt> <dd>08 2010</dd>
+						
+						
+						<dt>Bài viết</dt> <dd>58</dd>	
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+	<div class="postbody">
+		
+		<div class="postrow">
+			<h2 class="posttitle icon">
+				
+			</h2>
+			<div class="content">
+				<div id="post_message_163148">
+					<blockquote class="postcontent restore"><div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			
+				<div class="bbcode_postedby">
+					<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/quote_icon.png" alt="Trích dẫn" title="Trích dẫn"> Nguyên bản được gửi bởi <strong>langman</strong>
+					<a href="http://diendan.congdongcviet.com/showthread.php?s=15147321b478a500671c955a4544ea73&amp;p=163099#post163099" rel="nofollow"><img class="inlineimg" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/viewpost-right.png" alt="Xem bài viết" title="Xem bài viết"></a>
+				</div>
+				<div class="message">int a[1000000] ; khai báo ở đâu ?<br>
+em khai báo ở sở (tức là khai báo dạng local, trong các hàm )thì sở nó xin vùng nhớ ở stack segment, mà stack segment thì đây (trong ảnh, nhỏ gọn thế này, liệu nó có cho em vùng lớn thế kia ko 1000000*4byte)<br>
+<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/attachment(2).php" border="0" alt=""></div>
+			
+		</div>
+	</div>
+</div>Em khai báo trong hàm main(); thế nếu em khai báo là mảng toàn cục thì nó lấy ở đâu ra. (xin anh đừng lấy ví dụ cấp đất nữa, làm em thèm)</blockquote>
+				</div>
+				
+			</div>
+			
+			
+			
+		</div>
+		
+		<div class="signaturecontainer">
+			
+			
+			<blockquote class="signature restore"><font size="4">Sẽ không buồn vì những điều ta chưa làm được...</font></blockquote>
+			
+		</div>
+		
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols clearfix">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_163148" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/progress.gif" alt="">
+				
+				
+				
+					<a id="qrwq_163148" class="newreply" href="http://diendan.congdongcviet.com/newreply.php?s=15147321b478a500671c955a4544ea73&amp;do=newreply&amp;p=163148" rel="nofollow" title="Trả lời cùng với trích dẫn"><img id="quoteimg_163148" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/clear.gif" alt="Trả lời cùng với trích dẫn" title="Trả lời cùng với trích dẫn">  Trả lời cùng với trích dẫn</a> 
+				
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</span>
+		</div>
+	</div>
+	<hr>
+</li>
+
+<li class="postbit postbitim postcontainer old" id="post_163217">
+	<div class="postdetails_noavatar">
+		<div class="posthead clearfix">
+			<span class="postdate old">
+			
+				<span class="date">09-09-2010,&nbsp;<span class="time">11:01 PM</span></span>
+			
+			</span>
+			<span class="nodecontrols">
+			
+				<a name="post163217" href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp?s=15147321b478a500671c955a4544ea73&amp;p=163217#post163217" class="postcounter">#6</a><a id="postcount163217" name="6"></a>
+			
+			
+			
+			</span>
+		</div>
+		<div class="userinfo clearfix">
+			<div class="contact">
+				
+					<a class="postuseravatarlink" href="http://diendan.congdongcviet.com/members/u14971::langman.cpp?s=15147321b478a500671c955a4544ea73" title="langman là offline">
+						
+							<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/avatar14971_6.gif" alt="Avatar của langman" title="Avatar của langman">
+						
+					</a>
+				
+				<div class="username_container">
+					
+						
+<div class="popupmenu memberaction" id="yui-gen26">
+	<a class="username offline popupctrl" href="http://diendan.congdongcviet.com/members/u14971::langman.cpp?s=15147321b478a500671c955a4544ea73" title="langman là offline" id="yui-gen28"><span style="color: #FF6800;">langman</span></a>
+	<ul class="popupbody memberaction_body" id="yui-gen27">
+		<li class="left">
+			<a href="http://diendan.congdongcviet.com/members/u14971::langman.cpp?s=15147321b478a500671c955a4544ea73" class="siteicon_profile">Xem hồ sơ</a>
+		</li>
+		<li class="right">
+			<a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=finduser&amp;userid=14971&amp;contenttype=vBForum_Post" class="siteicon_forum" rel="nofollow">View Forum Threads</a>
+		</li>
+		<li class="right">
+			<a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=finduser&amp;userid=14971&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">View Forum Posts</a>
+		</li>
+		
+		<li class="left">
+			<a href="http://diendan.congdongcviet.com/private.php?s=15147321b478a500671c955a4544ea73&amp;do=newpm&amp;u=14971" class="siteicon_message" rel="nofollow">
+				Tin nhắn
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/user-offline.png" alt="langman là offline" border="0" title="langman là offline">
+
+					
+					<span class="usertitle">
+						Thành viên mới
+					</span>
+					
+						<span class="rank"><img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/moderator_4.png" alt="" border=""></span>
+					
+
+					
+					
+					
+						<div class="imlinks">
+							    
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Ngày gia nhập</dt> <dd>06 2007</dd>
+						<dt>Nơi ở</dt> <dd>C:\WINDOWS\system32\dllcache\</dd>
+						
+						<dt>Bài viết</dt> <dd>3,007</dd>	
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+	<div class="postbody">
+		
+		<div class="postrow">
+			<h2 class="posttitle icon">
+				
+				<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/icon1.png" alt="Mặc định" title="Mặc định"> Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ
+				
+			</h2>
+			<div class="content">
+				<div id="post_message_163217">
+					<blockquote class="postcontent restore"><div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			
+				<div class="bbcode_postedby">
+					<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/quote_icon.png" alt="Trích dẫn" title="Trích dẫn"> Nguyên bản được gửi bởi <strong>nthung</strong>
+					<a href="http://diendan.congdongcviet.com/showthread.php?s=15147321b478a500671c955a4544ea73&amp;p=163130#post163130" rel="nofollow"><img class="inlineimg" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/viewpost-right.png" alt="Xem bài viết" title="Xem bài viết"></a>
+				</div>
+				<div class="message">thanks,<br>
+hay quá,  xin hỏit dùng cái phần mềm gì để theo chụp được cái image như cậu</div>
+			
+		</div>
+	</div>
+</div>dùng công cụ khá nổi tiếng này <br>
+<div class="bbcode_container bbcode_container_code">
+	<div class="bbcode_description">PHP Code:</div>
+	<div class="bbcode_code" style="height:36px;"><code><span style="color: #000000">
+<span style="color: #0000BB">http</span><span style="color: #007700">:</span><span style="color: #FF8000">//forums.congdongcviet.com/attachment.php?attachmentid=3390&amp;d=1282152390&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code></div>
+</div><div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			
+				<div class="bbcode_postedby">
+					<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/quote_icon.png" alt="Trích dẫn" title="Trích dẫn"> Nguyên bản được gửi bởi <strong>tieuyeu_ht91</strong>
+					<a href="http://diendan.congdongcviet.com/showthread.php?s=15147321b478a500671c955a4544ea73&amp;p=163148#post163148" rel="nofollow"><img class="inlineimg" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/viewpost-right.png" alt="Xem bài viết" title="Xem bài viết"></a>
+				</div>
+				<div class="message">Em khai báo trong hàm main(); thế nếu em khai báo là mảng toàn cục thì nó lấy ở đâu ra. (xin anh đừng lấy ví dụ cấp đất nữa, làm em thèm)</div>
+			
+		</div>
+	</div>
+</div>các hằng và biến tĩnh nằm data segment,</blockquote>
+				</div>
+				
+			</div>
+			
+			
+			
+		</div>
+		
+		<div class="signaturecontainer">
+			
+			
+			<blockquote class="signature restore">^_<i>,</i>^<br>
+<br>
+Facebook : <a href="https://www.facebook.com/langmaninternet" target="_blank" rel="nofollow">https://www.facebook.com/langmaninternet</a><br>
+<br>
+Bùi Tấn Quang<br>
+<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/sigpic14971_6.gif" alt="" border="0"></blockquote>
+			
+		</div>
+		
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols clearfix">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_163217" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/progress.gif" alt="">
+				
+				
+				
+					<a id="qrwq_163217" class="newreply" href="http://diendan.congdongcviet.com/newreply.php?s=15147321b478a500671c955a4544ea73&amp;do=newreply&amp;p=163217" rel="nofollow" title="Trả lời cùng với trích dẫn"><img id="quoteimg_163217" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/clear.gif" alt="Trả lời cùng với trích dẫn" title="Trả lời cùng với trích dẫn">  Trả lời cùng với trích dẫn</a> 
+				
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</span>
+		</div>
+	</div>
+	<hr>
+</li>
+
+<li class="postbit postbitim postcontainer old" id="post_163329">
+	<div class="postdetails_noavatar">
+		<div class="posthead clearfix">
+			<span class="postdate old">
+			
+				<span class="date">10-09-2010,&nbsp;<span class="time">11:49 AM</span></span>
+			
+			</span>
+			<span class="nodecontrols">
+			
+				<a name="post163329" href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp?s=15147321b478a500671c955a4544ea73&amp;p=163329#post163329" class="postcounter">#7</a><a id="postcount163329" name="7"></a>
+			
+			
+			
+			</span>
+		</div>
+		<div class="userinfo clearfix">
+			<div class="contact">
+				
+					<a class="postuseravatarlink" href="http://diendan.congdongcviet.com/members/u58928::nature-master.cpp?s=15147321b478a500671c955a4544ea73" title="Nature Master là offline">
+						
+							<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/avatar58928_2.gif" alt="Avatar của Nature Master" title="Avatar của Nature Master">
+						
+					</a>
+				
+				<div class="username_container">
+					
+						
+<div class="popupmenu memberaction" id="yui-gen29">
+	<a class="username offline popupctrl" href="http://diendan.congdongcviet.com/members/u58928::nature-master.cpp?s=15147321b478a500671c955a4544ea73" title="Nature Master là offline" id="yui-gen31">Nature Master</a>
+	<ul class="popupbody memberaction_body" id="yui-gen30">
+		<li class="left">
+			<a href="http://diendan.congdongcviet.com/members/u58928::nature-master.cpp?s=15147321b478a500671c955a4544ea73" class="siteicon_profile">Xem hồ sơ</a>
+		</li>
+		<li class="right">
+			<a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=finduser&amp;userid=58928&amp;contenttype=vBForum_Post" class="siteicon_forum" rel="nofollow">View Forum Threads</a>
+		</li>
+		<li class="right">
+			<a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=finduser&amp;userid=58928&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">View Forum Posts</a>
+		</li>
+		
+		<li class="left">
+			<a href="http://diendan.congdongcviet.com/private.php?s=15147321b478a500671c955a4544ea73&amp;do=newpm&amp;u=58928" class="siteicon_message" rel="nofollow">
+				Tin nhắn
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/user-offline.png" alt="Nature Master là offline" border="0" title="Nature Master là offline">
+
+					
+					<span class="usertitle">
+						Thành viên nhiệt tình
+					</span>
+					
+						<span class="rank"><img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/registered_2.png" alt="" border=""></span>
+					
+
+					
+					
+					
+						<div class="imlinks">
+							    
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Ngày gia nhập</dt> <dd>05 2010</dd>
+						<dt>Nơi ở</dt> <dd>Cách Mạng Tháng 8</dd>
+						
+						<dt>Bài viết</dt> <dd>205</dd>	
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+	<div class="postbody">
+		
+		<div class="postrow">
+			<h2 class="posttitle icon">
+				
+			</h2>
+			<div class="content">
+				<div id="post_message_163329">
+					<blockquote class="postcontent restore"><font color="DarkGreen"><br>
+@tieuyeu_ht91 : cậu phải cấp phát động mới được lớn như thế chứ <img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/18.gif" border="0" alt="" title="ide" class="inlineimg"><br>
+</font></blockquote>
+				</div>
+				
+			</div>
+			
+			
+			
+		</div>
+		
+		<div class="signaturecontainer">
+			
+			
+			<blockquote class="signature restore"><font color="DarkGreen"><span style="font-family: Comic Sans MS"><div style="margin-left:40px"><div style="margin-left:40px">Nothing last forever !!</div></div></span></font></blockquote>
+			
+		</div>
+		
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols clearfix">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_163329" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/progress.gif" alt="">
+				
+				
+				
+					<a id="qrwq_163329" class="newreply" href="http://diendan.congdongcviet.com/newreply.php?s=15147321b478a500671c955a4544ea73&amp;do=newreply&amp;p=163329" rel="nofollow" title="Trả lời cùng với trích dẫn"><img id="quoteimg_163329" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/clear.gif" alt="Trả lời cùng với trích dẫn" title="Trả lời cùng với trích dẫn">  Trả lời cùng với trích dẫn</a> 
+				
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</span>
+		</div>
+	</div>
+	<hr>
+</li>
+
+<li class="postbit postbitim postcontainer old" id="post_163387">
+	<div class="postdetails_noavatar">
+		<div class="posthead clearfix">
+			<span class="postdate old">
+			
+				<span class="date">10-09-2010,&nbsp;<span class="time">04:48 PM</span></span>
+			
+			</span>
+			<span class="nodecontrols">
+			
+				<a name="post163387" href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp?s=15147321b478a500671c955a4544ea73&amp;p=163387#post163387" class="postcounter">#8</a><a id="postcount163387" name="8"></a>
+			
+			
+			
+			</span>
+		</div>
+		<div class="userinfo clearfix">
+			<div class="contact">
+				
+					<a class="postuseravatarlink" href="http://diendan.congdongcviet.com/members/u64242::tieuyeu-ht91.cpp?s=15147321b478a500671c955a4544ea73" title="tieuyeu_ht91 là offline">
+						
+							<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/avatar64242_2.gif" alt="Avatar của tieuyeu_ht91" title="Avatar của tieuyeu_ht91">
+						
+					</a>
+				
+				<div class="username_container">
+					
+						
+<div class="popupmenu memberaction" id="yui-gen32">
+	<a class="username offline popupctrl" href="http://diendan.congdongcviet.com/members/u64242::tieuyeu-ht91.cpp?s=15147321b478a500671c955a4544ea73" title="tieuyeu_ht91 là offline" id="yui-gen34">tieuyeu_ht91</a>
+	<ul class="popupbody memberaction_body" id="yui-gen33">
+		<li class="left">
+			<a href="http://diendan.congdongcviet.com/members/u64242::tieuyeu-ht91.cpp?s=15147321b478a500671c955a4544ea73" class="siteicon_profile">Xem hồ sơ</a>
+		</li>
+		<li class="right">
+			<a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=finduser&amp;userid=64242&amp;contenttype=vBForum_Post" class="siteicon_forum" rel="nofollow">View Forum Threads</a>
+		</li>
+		<li class="right">
+			<a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=finduser&amp;userid=64242&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">View Forum Posts</a>
+		</li>
+		
+		<li class="left">
+			<a href="http://diendan.congdongcviet.com/private.php?s=15147321b478a500671c955a4544ea73&amp;do=newpm&amp;u=64242" class="siteicon_message" rel="nofollow">
+				Tin nhắn
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/user-offline.png" alt="tieuyeu_ht91 là offline" border="0" title="tieuyeu_ht91 là offline">
+
+					
+					<span class="usertitle">
+						Thành viên chính thức
+					</span>
+					
+						<span class="rank"><img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/registered_1.png" alt="" border=""></span>
+					
+
+					
+					
+					
+						<div class="imlinks">
+							    
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Ngày gia nhập</dt> <dd>08 2010</dd>
+						
+						
+						<dt>Bài viết</dt> <dd>58</dd>	
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+	<div class="postbody">
+		
+		<div class="postrow">
+			<h2 class="posttitle icon">
+				
+			</h2>
+			<div class="content">
+				<div id="post_message_163387">
+					<blockquote class="postcontent restore"><div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			
+				<div class="bbcode_postedby">
+					<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/quote_icon.png" alt="Trích dẫn" title="Trích dẫn"> Nguyên bản được gửi bởi <strong>Nature Master</strong>
+					<a href="http://diendan.congdongcviet.com/showthread.php?s=15147321b478a500671c955a4544ea73&amp;p=163329#post163329" rel="nofollow"><img class="inlineimg" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/viewpost-right.png" alt="Xem bài viết" title="Xem bài viết"></a>
+				</div>
+				<div class="message"><font color="DarkGreen"><br>
+@tieuyeu_ht91 : cậu phải cấp phát động mới được lớn như thế chứ <img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/18.gif" border="0" alt="" title="ide" class="inlineimg"><br>
+</font></div>
+			
+		</div>
+	</div>
+</div>Cấp phát động thì nó lấy bộ nhớ từ đâu vậy cà.<br>
+<br>
+"data segment" <br>
+Là cái gì thế em dịch là dữ liệu phân đoạn, nghĩa là sao đây, anh langman bận rộn thế :P:P</blockquote>
+				</div>
+				
+			</div>
+			
+			
+			
+		</div>
+		
+		<div class="signaturecontainer">
+			
+			
+			<blockquote class="signature restore"><font size="4">Sẽ không buồn vì những điều ta chưa làm được...</font></blockquote>
+			
+		</div>
+		
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols clearfix">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_163387" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/progress.gif" alt="">
+				
+				
+				
+					<a id="qrwq_163387" class="newreply" href="http://diendan.congdongcviet.com/newreply.php?s=15147321b478a500671c955a4544ea73&amp;do=newreply&amp;p=163387" rel="nofollow" title="Trả lời cùng với trích dẫn"><img id="quoteimg_163387" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/clear.gif" alt="Trả lời cùng với trích dẫn" title="Trả lời cùng với trích dẫn">  Trả lời cùng với trích dẫn</a> 
+				
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</span>
+		</div>
+	</div>
+	<hr>
+</li>
+
+<li class="postbit postbitim postcontainer old" id="post_163428">
+	<div class="postdetails_noavatar">
+		<div class="posthead clearfix">
+			<span class="postdate old">
+			
+				<span class="date">10-09-2010,&nbsp;<span class="time">08:03 PM</span></span>
+			
+			</span>
+			<span class="nodecontrols">
+			
+				<a name="post163428" href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp?s=15147321b478a500671c955a4544ea73&amp;p=163428#post163428" class="postcounter">#9</a><a id="postcount163428" name="9"></a>
+			
+			
+			
+			</span>
+		</div>
+		<div class="userinfo clearfix">
+			<div class="contact">
+				
+					<a class="postuseravatarlink" href="http://diendan.congdongcviet.com/members/u14971::langman.cpp?s=15147321b478a500671c955a4544ea73" title="langman là offline">
+						
+							<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/avatar14971_6.gif" alt="Avatar của langman" title="Avatar của langman">
+						
+					</a>
+				
+				<div class="username_container">
+					
+						
+<div class="popupmenu memberaction" id="yui-gen35">
+	<a class="username offline popupctrl" href="http://diendan.congdongcviet.com/members/u14971::langman.cpp?s=15147321b478a500671c955a4544ea73" title="langman là offline" id="yui-gen37"><span style="color: #FF6800;">langman</span></a>
+	<ul class="popupbody memberaction_body" id="yui-gen36">
+		<li class="left">
+			<a href="http://diendan.congdongcviet.com/members/u14971::langman.cpp?s=15147321b478a500671c955a4544ea73" class="siteicon_profile">Xem hồ sơ</a>
+		</li>
+		<li class="right">
+			<a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=finduser&amp;userid=14971&amp;contenttype=vBForum_Post" class="siteicon_forum" rel="nofollow">View Forum Threads</a>
+		</li>
+		<li class="right">
+			<a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=finduser&amp;userid=14971&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">View Forum Posts</a>
+		</li>
+		
+		<li class="left">
+			<a href="http://diendan.congdongcviet.com/private.php?s=15147321b478a500671c955a4544ea73&amp;do=newpm&amp;u=14971" class="siteicon_message" rel="nofollow">
+				Tin nhắn
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/user-offline.png" alt="langman là offline" border="0" title="langman là offline">
+
+					
+					<span class="usertitle">
+						Thành viên mới
+					</span>
+					
+						<span class="rank"><img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/moderator_4.png" alt="" border=""></span>
+					
+
+					
+					
+					
+						<div class="imlinks">
+							    
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Ngày gia nhập</dt> <dd>06 2007</dd>
+						<dt>Nơi ở</dt> <dd>C:\WINDOWS\system32\dllcache\</dd>
+						
+						<dt>Bài viết</dt> <dd>3,007</dd>	
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+	<div class="postbody">
+		
+		<div class="postrow">
+			<h2 class="posttitle icon">
+				
+			</h2>
+			<div class="content">
+				<div id="post_message_163428">
+					<blockquote class="postcontent restore">đã update câu trả lời cho em, xem ở #1</blockquote>
+				</div>
+				
+			</div>
+			
+			
+			
+		</div>
+		
+		<div class="signaturecontainer">
+			
+			
+			<blockquote class="signature restore">^_<i>,</i>^<br>
+<br>
+Facebook : <a href="https://www.facebook.com/langmaninternet" target="_blank" rel="nofollow">https://www.facebook.com/langmaninternet</a><br>
+<br>
+Bùi Tấn Quang<br>
+<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/sigpic14971_6.gif" alt="" border="0"></blockquote>
+			
+		</div>
+		
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols clearfix">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_163428" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/progress.gif" alt="">
+				
+				
+				
+					<a id="qrwq_163428" class="newreply" href="http://diendan.congdongcviet.com/newreply.php?s=15147321b478a500671c955a4544ea73&amp;do=newreply&amp;p=163428" rel="nofollow" title="Trả lời cùng với trích dẫn"><img id="quoteimg_163428" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/clear.gif" alt="Trả lời cùng với trích dẫn" title="Trả lời cùng với trích dẫn">  Trả lời cùng với trích dẫn</a> 
+				
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</span>
+		</div>
+	</div>
+	<hr>
+</li>
+
+<li class="postbit postbitim postcontainer old" id="post_163587">
+	<div class="postdetails_noavatar">
+		<div class="posthead clearfix">
+			<span class="postdate old">
+			
+				<span class="date">11-09-2010,&nbsp;<span class="time">11:19 AM</span></span>
+			
+			</span>
+			<span class="nodecontrols">
+			
+				<a name="post163587" href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp?s=15147321b478a500671c955a4544ea73&amp;p=163587#post163587" class="postcounter">#10</a><a id="postcount163587" name="10"></a>
+			
+			
+			
+			</span>
+		</div>
+		<div class="userinfo clearfix">
+			<div class="contact">
+				
+					<a class="postuseravatarlink" href="http://diendan.congdongcviet.com/members/u64242::tieuyeu-ht91.cpp?s=15147321b478a500671c955a4544ea73" title="tieuyeu_ht91 là offline">
+						
+							<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/avatar64242_2.gif" alt="Avatar của tieuyeu_ht91" title="Avatar của tieuyeu_ht91">
+						
+					</a>
+				
+				<div class="username_container">
+					
+						
+<div class="popupmenu memberaction" id="yui-gen38">
+	<a class="username offline popupctrl" href="http://diendan.congdongcviet.com/members/u64242::tieuyeu-ht91.cpp?s=15147321b478a500671c955a4544ea73" title="tieuyeu_ht91 là offline" id="yui-gen40">tieuyeu_ht91</a>
+	<ul class="popupbody memberaction_body" id="yui-gen39">
+		<li class="left">
+			<a href="http://diendan.congdongcviet.com/members/u64242::tieuyeu-ht91.cpp?s=15147321b478a500671c955a4544ea73" class="siteicon_profile">Xem hồ sơ</a>
+		</li>
+		<li class="right">
+			<a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=finduser&amp;userid=64242&amp;contenttype=vBForum_Post" class="siteicon_forum" rel="nofollow">View Forum Threads</a>
+		</li>
+		<li class="right">
+			<a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73&amp;do=finduser&amp;userid=64242&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">View Forum Posts</a>
+		</li>
+		
+		<li class="left">
+			<a href="http://diendan.congdongcviet.com/private.php?s=15147321b478a500671c955a4544ea73&amp;do=newpm&amp;u=64242" class="siteicon_message" rel="nofollow">
+				Tin nhắn
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/user-offline.png" alt="tieuyeu_ht91 là offline" border="0" title="tieuyeu_ht91 là offline">
+
+					
+					<span class="usertitle">
+						Thành viên chính thức
+					</span>
+					
+						<span class="rank"><img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/registered_1.png" alt="" border=""></span>
+					
+
+					
+					
+					
+						<div class="imlinks">
+							    
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Ngày gia nhập</dt> <dd>08 2010</dd>
+						
+						
+						<dt>Bài viết</dt> <dd>58</dd>	
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+	<div class="postbody">
+		
+		<div class="postrow">
+			<h2 class="posttitle icon">
+				
+			</h2>
+			<div class="content hasad">
+				<div id="post_message_163587">
+					<blockquote class="postcontent restore"><div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			
+				<div class="bbcode_postedby">
+					<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/quote_icon.png" alt="Trích dẫn" title="Trích dẫn"> Nguyên bản được gửi bởi <strong>langman</strong>
+					<a href="http://diendan.congdongcviet.com/showthread.php?s=15147321b478a500671c955a4544ea73&amp;p=163428#post163428" rel="nofollow"><img class="inlineimg" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/viewpost-right.png" alt="Xem bài viết" title="Xem bài viết"></a>
+				</div>
+				<div class="message">đã update câu trả lời cho em, xem ở #1</div>
+			
+		</div>
+	</div>
+</div>Cám ơn anh, rất chi tiết, giờ thì em thực sự hiểu rồi <img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/biggrin.png" border="0" alt="" title="big grin" class="inlineimg"></blockquote>
+				</div>
+				
+			</div>
+			
+			
+				<div id="ad_thread_last_post_content"><div style="height:90px;padding-top: 20px">
+<!-- CViet LastPost Responsive -->
+<ins class="adsbygoogle" style="display: block; height: 90px;" data-ad-client="ca-pub-2525409910423371" data-ad-slot="3369429681" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_3_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent;"><ins id="aswift_3_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent;"><iframe width="1200" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;width:1200px;height:90px;" __idm_frm__="25" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/saved_resource(4).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></div>
+			
+			
+		</div>
+		
+		<div class="signaturecontainer">
+			
+			
+			<blockquote class="signature restore"><font size="4">Sẽ không buồn vì những điều ta chưa làm được...</font></blockquote>
+			
+		</div>
+		
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols clearfix">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_163587" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/progress.gif" alt="">
+				
+				
+				
+					<a id="qrwq_163587" class="newreply" href="http://diendan.congdongcviet.com/newreply.php?s=15147321b478a500671c955a4544ea73&amp;do=newreply&amp;p=163587" rel="nofollow" title="Trả lời cùng với trích dẫn"><img id="quoteimg_163587" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/clear.gif" alt="Trả lời cùng với trích dẫn" title="Trả lời cùng với trích dẫn">  Trả lời cùng với trích dẫn</a> 
+				
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</span>
+		</div>
+	</div>
+	<hr>
+</li>
+</ol>
+		<div class="separator"></div>
+		<div class="postlistfoot clearfix">
+			
+		</div>
+
+	
+</div>
+
+<div id="below_postlist" class="noinlinemod below_postlist clearfix">
+	
+	<div id="pagination_bottom" class="pagination_bottom">
+	<form action="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp/page3?s=15147321b478a500671c955a4544ea73" method="get" class="pagination popupmenu nohovermenu" id="yui-gen41">
+<input type="hidden" name="t" value="36221"><input type="hidden" name="s" value="15147321b478a500671c955a4544ea73">
+	
+		<span><a href="javascript://" class="popupctrl" id="yui-gen43">Trang 1 trên tổng số 5</a></span>
+		
+		
+		
+		<span class="selected"><a href="javascript://" title="Từ 1 tới 10 trên tổng số 48 kết quả">1</a></span><span><a href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp/page2?s=15147321b478a500671c955a4544ea73" title="Hiện từ 11 tới 20 trên tổng số 48 kết quả">2</a></span><span><a href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp/page3?s=15147321b478a500671c955a4544ea73" title="Hiện từ 21 tới 30 trên tổng số 48 kết quả">3</a></span><span class="separator">...</span>
+		<span class="prev_next"><a rel="next" href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp/page2?s=15147321b478a500671c955a4544ea73" title="Trang liền sau - Từ 11 tới 20 trên tổng số 48 kết quả"><img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/next-right.png" alt="Liền sau" title="Liền sau"></a></span>
+		<span class="first_last"><a href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp/page5?s=15147321b478a500671c955a4544ea73" title="Trang cuối - Từ 41 tới 48 trên tổng số 48 kết quả">Cuối cùng<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/last-right.png" alt="Cuối cùng" title="Cuối cùng"></a></span>
+	
+	<ul class="popupbody" id="yui-gen42">
+		<li class="formsubmit jumptopage"><label>Nhảy tới trang: <input type="text" name="page" size="4"></label> <input type="submit" class="button" value="Go"></li>
+	</ul>
+</form>
+	</div>
+</div>
+<div class="forumjump_ctrl clearfix">
+<div class="navpopupmenu popupmenu nohovermenu" id="showthread_navpopup">
+	
+		<span class="shade">Quick Navigation</span>
+		<a href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp?s=15147321b478a500671c955a4544ea73" class="popupctrl" id="yui-gen45"><span class="ctrlcontainer">Thủ thuật, Tutorials và Mã nguồn C/C++/C++0x</span></a>
+		<a href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp#top" class="textcontrol" onclick="document.location.hash=&#39;top&#39;;return false;">Top</a>
+	
+	<ul class="navpopupbody popupbody" id="yui-gen44">
+		<li class="optionlabel">Các khu vực của site</li>
+		<li><a href="http://diendan.congdongcviet.com/usercp.php?s=15147321b478a500671c955a4544ea73">Settings</a></li>
+		<li><a href="http://diendan.congdongcviet.com/private.php?s=15147321b478a500671c955a4544ea73">Tin nhắn</a></li>
+		<li><a href="http://diendan.congdongcviet.com/subscription.php?s=15147321b478a500671c955a4544ea73">Các theo dõi</a></li>
+		<li><a href="http://diendan.congdongcviet.com/online.php?s=15147321b478a500671c955a4544ea73">Ai online</a></li>
+		<li><a href="http://diendan.congdongcviet.com/search.php?s=15147321b478a500671c955a4544ea73">Tìm kiếm các diễn đàn</a></li>
+		<li><a href="http://diendan.congdongcviet.com/forum.php?s=15147321b478a500671c955a4544ea73">Trang chính</a></li>
+		
+			<li class="optionlabel">Các diễn đàn</li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f1::cong-dong-c-viet.cpp?s=15147321b478a500671c955a4544ea73">CỘNG ĐỒNG C VIỆT</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f2::thong-bao-chung.cpp?s=15147321b478a500671c955a4544ea73">Thông báo chung</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f3::y-kien-de-xuat-khieu-nai.cpp?s=15147321b478a500671c955a4544ea73">Ý kiến, đề xuất và khiếu nại</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f32::dinh-huong-dao-tao-viec-lam-nganh-cntt.cpp?s=15147321b478a500671c955a4544ea73">ĐỊNH HƯỚNG, ĐÀO TẠO &amp; VIỆC LÀM NGÀNH CNTT</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f55::dao-tao-cntt.cpp?s=15147321b478a500671c955a4544ea73">Đào tạo CNTT</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f19::kinh-nghiem-cntt.cpp?s=15147321b478a500671c955a4544ea73">Kinh nghiệm CNTT</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f15::hoi-thao-chuyen-de-cac-cuoc-thi-cntt.cpp?s=15147321b478a500671c955a4544ea73">Hội thảo, Chuyên đề và Các cuộc thi CNTT</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f49::tuyen-dung-viec-lam-cntt.cpp?s=15147321b478a500671c955a4544ea73">Tuyển dụng - Việc làm CNTT</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f52::viec-lam-it-tu-do.cpp?s=15147321b478a500671c955a4544ea73">Việc làm IT(tự do)</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f9::lap-trinh-visual-csharp.cpp?s=15147321b478a500671c955a4544ea73">LẬP TRÌNH VISUAL C#</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f17::thac-mac-lap-trinh-csharp.cpp?s=15147321b478a500671c955a4544ea73">Thắc mắc lập trình C#</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f46::thac-mac-lap-trinh-asp-net.cpp?s=15147321b478a500671c955a4544ea73">Thắc mắc lập trình ASP.NET</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f47::lap-trinh-windows-mobile-bang-csharp.cpp?s=15147321b478a500671c955a4544ea73">Lập trình Windows Mobile bằng C#</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f31::tutorials-thu-thuat-lap-trinh-csharp-asp-net.cpp?s=15147321b478a500671c955a4544ea73">Tutorials và Thủ thuật lập trình C#, ASP.NET</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f57::du-an-source-code-csharp-asp-net.cpp?s=15147321b478a500671c955a4544ea73">Dự án &amp; Source code C#, ASP.NET</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f58::cong-cu-ebooks-csharp-asp-net-windows-mobile.cpp?s=15147321b478a500671c955a4544ea73">Công cụ, ebooks C#, ASP.NET, và Windows Mobile</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f10::lap-trinh-objective-c.cpp?s=15147321b478a500671c955a4544ea73">LẬP TRÌNH OBJECTIVE-C</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f40::nhap-mon-lap-trinh-objective-c.cpp?s=15147321b478a500671c955a4544ea73">Nhập môn lập trình Objective-C</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f68::thac-mac-iphone-ipad-mac-os-x.cpp?s=15147321b478a500671c955a4544ea73">Thắc mắc IPhone, IPad, Mac OS X</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f41::thac-mac-lap-trinh-objective-c.cpp?s=15147321b478a500671c955a4544ea73">Thắc mắc lập trình Objective-C</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f48::tutorials-thu-thuat-lap-trinh-objective-c.cpp?s=15147321b478a500671c955a4544ea73">Tutorials và Thủ thuật lập trình Objective-C</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f65::cong-cu-tai-lieu-lap-trinh-objective-c.cpp?s=15147321b478a500671c955a4544ea73">Công cụ, Tài liệu lập trình Objective-C</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f11::lap-trinh-java.cpp?s=15147321b478a500671c955a4544ea73">LẬP TRÌNH JAVA</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f71::thac-mac-lap-trinh-java.cpp?s=15147321b478a500671c955a4544ea73">Thắc mắc lập trình Java</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f72::lap-trinh-android-java-mobile.cpp?s=15147321b478a500671c955a4544ea73">Lập trình Android và Java Mobile</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f73::tutorials-thu-thuat-lap-trinh-java.cpp?s=15147321b478a500671c955a4544ea73">Tutorials và Thủ thuật lập trình Java</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f74::du-an-source-code-java.cpp?s=15147321b478a500671c955a4544ea73">Dự án &amp; Source code Java</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f75::cong-cu-ebooks-java.cpp?s=15147321b478a500671c955a4544ea73">Công cụ, ebooks Java</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f5::lap-trinh-visual-cpp-lap-trinh-visual-cpp-net.cpp?s=15147321b478a500671c955a4544ea73">LẬP TRÌNH VISUAL C++ | LẬP TRÌNH VISUAL C++.NET</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f14::thac-mac-lap-trinh-visual-cpp.cpp?s=15147321b478a500671c955a4544ea73">Thắc mắc lập trình Visual C++</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f61::windows-api-hooking-xu-ly-windows-message.cpp?s=15147321b478a500671c955a4544ea73">Windows API, Hooking, xử lý Windows Message</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f38::lap-trinh-virus-anti-virus.cpp?s=15147321b478a500671c955a4544ea73">Lập trình Virus &amp; Anti-Virus</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f30::tutorials-thu-thuat-visual-cpp.cpp?s=15147321b478a500671c955a4544ea73">Tutorials và Thủ thuật Visual C++</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f64::du-an-source-code-visual-cpp.cpp?s=15147321b478a500671c955a4544ea73">Dự án &amp; Source code VC++</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f66::cong-cu-ebooks-visual-cpp.cpp?s=15147321b478a500671c955a4544ea73">Công cụ, ebooks VC++</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f7::lap-trinh-cpp-lap-trinh-c-lap-trinh-cpp0x.cpp?s=15147321b478a500671c955a4544ea73">LẬP TRÌNH C++ | LẬP TRÌNH C | LẬP TRÌNH C++0X</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f59::thac-mac-lap-trinh-c-cpp-cpp0x.cpp?s=15147321b478a500671c955a4544ea73">Thắc mắc lập trình C/C++/C++0x</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f36::thac-mac-ctdl-giai-thuat.cpp?s=15147321b478a500671c955a4544ea73">Thắc mắc CTDL &amp; Giải thuật</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f27::thao-luan-gop-y-code-c-cpp-cua-ban.cpp?s=15147321b478a500671c955a4544ea73">Thảo luận, góp ý code C/C++ của bạn</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f21::thu-thuat-tutorials-ma-nguon-c-cpp-cpp0x.cpp?s=15147321b478a500671c955a4544ea73">Thủ thuật, Tutorials và Mã nguồn C/C++/C++0x</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f56::thu-thuat-tutorials-ctdl-giai-thuat.cpp?s=15147321b478a500671c955a4544ea73">Thủ thuật, Tutorials CTDL &amp; Giải thuật</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f63::tai-lieu-ebooks-cong-cu.cpp?s=15147321b478a500671c955a4544ea73">Tài liệu, ebooks và công cụ</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f16::lap-trinh-tren-linux-linux-programming.cpp?s=15147321b478a500671c955a4544ea73">LẬP TRÌNH TRÊN LINUX | LINUX PROGRAMMING</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f18::thac-mac-lap-trinh-shell-linux.cpp?s=15147321b478a500671c955a4544ea73">Thắc mắc  lập trình shell Linux</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f23::thac-mac-lap-trinh-c-cpp-tren-linux.cpp?s=15147321b478a500671c955a4544ea73">Thắc mắc lập trình C/C++ trên Linux</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f20::thu-thuat-tutorials-ma-nguon.cpp?s=15147321b478a500671c955a4544ea73">Thủ thuật, Tutorials và Mã nguồn</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f24::cong-cu-tai-lieu-lap-trinh-tren-linux.cpp?s=15147321b478a500671c955a4544ea73">Công cụ, Tài liệu lập trình trên Linux</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f12::database-reporting-cac-he-quan-tri-database.cpp?s=15147321b478a500671c955a4544ea73">DATABASE &amp; REPORTING | CÁC HỆ QUẢN TRỊ DATABASE</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f6::thac-mac-dai-cuong-database-reporting.cpp?s=15147321b478a500671c955a4544ea73">Thắc mắc đại cương Database &amp; Reporting</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f35::thac-mac-oracle.cpp?s=15147321b478a500671c955a4544ea73">Thắc mắc Oracle</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f60::thac-mac-microsoft-sql-server-microsoft-access.cpp?s=15147321b478a500671c955a4544ea73">Thắc mắc Microsoft SQL Server &amp; Microsoft Access</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f34::thac-mac-mysql-sqlite.cpp?s=15147321b478a500671c955a4544ea73">Thắc mắc MySQL và SQLite</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f67::thu-thuat-tutorials-database.cpp?s=15147321b478a500671c955a4544ea73">Thủ thuật, Tutorials Database</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f39::tai-lieu-ebooks-db.cpp?s=15147321b478a500671c955a4544ea73">Tài liệu, ebooks DB</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f22::thanh-vien-cong-dong-c-viet.cpp?s=15147321b478a500671c955a4544ea73">THÀNH VIÊN CỘNG ĐỒNG C VIỆT</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f51::hinh-tuong-thanh-vien.cpp?s=15147321b478a500671c955a4544ea73">Hình tượng thành viên</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f28::y-tuong-san-pham-cntt-cua-ban.cpp?s=15147321b478a500671c955a4544ea73">Ý tưởng sản phẩm CNTT của bạn</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f29::san-pham-phan-mem-cua-ban.cpp?s=15147321b478a500671c955a4544ea73">Sản phẩm phần mềm của bạn</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f8::thao-luan-chung.cpp?s=15147321b478a500671c955a4544ea73">THẢO LUẬN CHUNG</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f13::thac-mac-chung.cpp?s=15147321b478a500671c955a4544ea73">Thắc mắc chung</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f25::english-for-it-tieng-anh-cho-dan-cntt.cpp?s=15147321b478a500671c955a4544ea73">English for IT | Tiếng anh cho dân CNTT</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f37::software-phan-mem-ebooks.cpp?s=15147321b478a500671c955a4544ea73">Software (Phần mềm) | Ebooks</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f42::chuyen-muc-giai-tri.cpp?s=15147321b478a500671c955a4544ea73">CHUYÊN MỤC GIẢI TRÍ</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f43::giao-luu-chem-gio.cpp?s=15147321b478a500671c955a4544ea73">Giao lưu - Chém gió</a></li>
+			
+		
+			
+				<li><a href="http://diendan.congdongcviet.com/forums/f33::giai-tri-thu-gian.cpp?s=15147321b478a500671c955a4544ea73">Giải trí - Thư giãn</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+	</ul>
+</div></div>
+
+
+
+
+
+
+<fb:comments width="900" href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp?s=15147321b478a500671c955a4544ea73" numposts="5" colorscheme="light"></fb:comments>
+
+	<!-- next / previous links -->
+	<div class="navlinks">
+		
+			<strong>«</strong>
+			<a href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp?s=15147321b478a500671c955a4544ea73&amp;goto=nextoldest" rel="nofollow">Đề tài liền trước</a> |
+			<a href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp?s=15147321b478a500671c955a4544ea73&amp;goto=nextnewest" rel="nofollow">Đề tài liền sau</a>
+			<strong>»</strong>
+		
+	</div>
+	<!-- / next / previous links -->
+
+<div id="thread_info" class="thread_info">
+	
+	
+	<div id="similar_threads">
+		<h4 class="threadinfohead blockhead">Các đề tài tương tự</h4>
+		<div id="similar_threads_list" class="thread_info_block blockbody formcontrols">
+			<ol class="similar_threads">
+			<li class="clearfix">
+  <div class="titleblock">
+    <h6><a href="http://diendan.congdongcviet.com/threads/t176509::do-muc-may-in-sua-may-tinh-tai-nha-ha-noi-dong-da-cau-giay-ha-dong-thanh-xuan-giai-phong-hoan-kiem-long-bien.cpp?s=15147321b478a500671c955a4544ea73" title="SỬA MÁY TÍNH, CÀI ĐẶT WINDOWS, PHẦN MỀM TẠI NHÀ NHANH NHẤT, RẺ NHẤT, HIỆU QUẢ NHẤT … 
+Hotline 24/24 : 0989.066.584, 0982.646.985 
+Cài đặt mới các hệ điều hành, ứng...">do muc may in, sua may tinh tai nha hà nội: đống đa, cầu giấy, hà đông, thanh xuân, giải phóng, hoàn kiếm, long bien</a></h6>
+    <div class="starter_forum">
+      Gửi bởi hopluccc trong diễn đàn Giới thiệu website, sản phẩm của bạn
+    </div>
+  </div>
+  <div class="dateblock">
+    <span class="shade">Trả lời:</span> 1
+      <div class="starter_forum">
+        <span class="shade">Bài viết cuối:</span> 09-03-2014, <span class="time">08:09 PM</span>
+      </div>
+  </div>
+</li><li class="clearfix">
+  <div class="titleblock">
+    <h6><a href="http://diendan.congdongcviet.com/threads/t184428::do-muc-may-in-sua-may-tinh-tai-nha-ha-noi-dong-da-cau-giay-ha-dong-thanh-xuan-giai-phong-hoan-kiem-long-bien.cpp?s=15147321b478a500671c955a4544ea73" title="Cài đặt mới các hệ điều hành, ứng dụng văn phòng, đồ họa, games theo yêu cầu của khách hàng. 
+Khắc phục các sự cố lỗi Win, các ứng dụng văn phòng, đồ họa, các tiện...">do muc may in, sua may tinh tai nha hà nội: đống đa, cầu giấy, hà đông, thanh xuân, giải phóng, hoàn kiếm, long bien</a></h6>
+    <div class="starter_forum">
+      Gửi bởi hopluccc trong diễn đàn Giới thiệu website, sản phẩm của bạn
+    </div>
+  </div>
+  <div class="dateblock">
+    <span class="shade">Trả lời:</span> 0
+      <div class="starter_forum">
+        <span class="shade">Bài viết cuối:</span> 07-05-2013, <span class="time">09:40 AM</span>
+      </div>
+  </div>
+</li><li class="clearfix">
+  <div class="titleblock">
+    <h6><a href="http://diendan.congdongcviet.com/threads/t176314::do-muc-may-in-sua-may-tinh-tai-nha-ha-noi-dong-da-cau-giay-ha-dong-thanh-xuan-giai-phong-hoan-kiem-long-bien.cpp?s=15147321b478a500671c955a4544ea73" title="SỬA MÁY TÍNH, CÀI ĐẶT WINDOWS, PHẦN MỀM TẠI NHÀ NHANH NHẤT, RẺ NHẤT, HIỆU QUẢ NHẤT … 
+Hotline 24/24 : 0989.066.584, 0982.646.985 
+Cài đặt mới các hệ điều hành, ứng...">do muc may in, sua may tinh tai nha hà nội: đống đa, cầu giấy, hà đông, thanh xuân, giải phóng, hoàn kiếm, long bien</a></h6>
+    <div class="starter_forum">
+      Gửi bởi hopluccc trong diễn đàn Giới thiệu website, sản phẩm của bạn
+    </div>
+  </div>
+  <div class="dateblock">
+    <span class="shade">Trả lời:</span> 1
+      <div class="starter_forum">
+        <span class="shade">Bài viết cuối:</span> 09-03-2013, <span class="time">10:08 AM</span>
+      </div>
+  </div>
+</li><li class="clearfix">
+  <div class="titleblock">
+    <h6><a href="http://diendan.congdongcviet.com/threads/t84004::chung-cu-257-giai-phong-st-cn-chung-cu-257-giai-phong-dt-81m-33tr.cpp?s=15147321b478a500671c955a4544ea73" title="Chung Cư 257 Giải Phóng, st/cn Chung Cư 257 Giải Phóng với DT: 81m, 33tr 
+Chung Cư 257 Giải Phóng, st/cn Chung Cư 257 Giải Phóng với DT: 81m, 33tr , Chung Cư 257 Giải...">Chung Cư 257 Giải Phóng, st/cn Chung Cư 257 Giải Phóng với DT: 81m, 33tr</a></h6>
+    <div class="starter_forum">
+      Gửi bởi datphat191 trong diễn đàn Giới thiệu website, sản phẩm của bạn
+    </div>
+  </div>
+  <div class="dateblock">
+    <span class="shade">Trả lời:</span> 0
+      <div class="starter_forum">
+        <span class="shade">Bài viết cuối:</span> 16-02-2012, <span class="time">01:37 PM</span>
+      </div>
+  </div>
+</li><li class="clearfix">
+  <div class="titleblock">
+    <h6><a href="http://diendan.congdongcviet.com/threads/t35766::giai-phong-bo-nho-nhu-the-nao-de-chuong-trinh-chay-nhanh.cpp?s=15147321b478a500671c955a4544ea73" title="Thưa anh chị em có bài toán này nhờ anh chị giải quyết giúp ạ! 
+Bài toán la đầu tiên em cấp phát cho con trỏ bộ nhớ sau đó dùng hàm if để so sánh nếu thỏa mãn thì làm...">Giải phóng bộ nhớ như thế nào để chương trình chạy nhanh?</a></h6>
+    <div class="starter_forum">
+      Gửi bởi toanhoi trong diễn đàn Thắc mắc lập trình C/C++/C++0x
+    </div>
+  </div>
+  <div class="dateblock">
+    <span class="shade">Trả lời:</span> 3
+      <div class="starter_forum">
+        <span class="shade">Bài viết cuối:</span> 03-09-2010, <span class="time">01:14 PM</span>
+      </div>
+  </div>
+</li>
+			</ol>
+		</div>
+	</div>
+
+	
+	
+	
+	
+	<div class="options_block_container">
+		
+		<div class="options_block">
+			<h4 class="collapse blockhead options_correct">
+				<a class="collapse" id="collapse_posting_rules" href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp#top"><img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/collapse_40b.png" alt=""></a>
+				Quyền hạn của bạn
+			</h4>
+			<div id="posting_rules" class="thread_info_block blockbody formcontrols options_correct clearfix">
+<div id="forumrules" class="info_subblock">
+
+	<ul class="youcandoblock">
+		<li>Bạn <strong>không thể</strong> gửi đề tài mới</li>
+		<li>Bạn <strong>không thể</strong> gửi bài trả lời</li>
+		<li>Bạn <strong>không thể</strong> gửi các đính kèm</li>
+		<li>Bạn <strong>không thể</strong> chỉnh sửa bài viết của bạn</li>
+		<li><p class="rules_link"><a href="http://diendan.congdongcviet.com/misc.php?s=15147321b478a500671c955a4544ea73&amp;do=showrules" target="_blank">Tìm hiểu luật lệ tham gia diễn đàn</a></p></li>
+	</ul>
+	<div class="bbcodeblock">
+		<ul>
+			<li><a href="http://diendan.congdongcviet.com/misc.php?s=15147321b478a500671c955a4544ea73&amp;do=bbcode" target="_blank">BB code</a>: <strong>On</strong></li>
+			<li><a href="http://diendan.congdongcviet.com/misc.php?s=15147321b478a500671c955a4544ea73&amp;do=showsmilies" target="_blank">Mặt cười</a>: <strong>On</strong></li>
+			<li><a href="http://diendan.congdongcviet.com/misc.php?s=15147321b478a500671c955a4544ea73&amp;do=bbcode#imgcode" target="_blank">[IMG]</a> code: <strong>On</strong></li>
+			<li><a href="http://diendan.congdongcviet.com/misc.php?s=15147321b478a500671c955a4544ea73&amp;do=bbcode#videocode" target="_blank">[VIDEO]</a> code is <strong>On</strong></li>
+			<li>HTML code: <strong>Off</strong></li>
+		</ul>
+	</div>
+
+</div>
+</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+<div style="clear: left">
+  
+  <div id="ad_global_above_footer"><div style="height: 90px;">
+<script async="" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/f(11).txt"></script>
+<!-- CViet Footer -->
+<ins class="adsbygoogle" style="display: block; height: 90px;" data-ad-client="ca-pub-2525409910423371" data-ad-slot="5681541683" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_4_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent;"><ins id="aswift_4_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent;"><iframe width="1200" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_4" name="aswift_4" style="left:0;position:absolute;top:0;width:1200px;height:90px;" __idm_frm__="26" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/saved_resource(5).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></div>
+</div>
+
+<div id="footer" class="footer clearfix">
+	<form action="http://diendan.congdongcviet.com/forum.php" method="get" id="footer_select" class="footer_select">
+		
+			<select name="styleid" onchange="switch_id(this, &#39;style&#39;)">
+				<optgroup label="Chọn nhanh Style"><option class="hidden"></option></optgroup>
+				
+					
+					<optgroup label=" Standard Styles">
+									
+					
+
+	<option value="4" class="" selected="selected">-- Computer Style</option>
+
+					
+					</optgroup>
+										
+				
+				
+					
+					<optgroup label=" Mobile Styles">
+					
+					
+
+	<option value="5" class="">-- Mobile Style</option>
+
+					
+					</optgroup>
+					
+				
+			</select>	
+		
+		
+		
+	</form>
+
+	<ul id="footer_links" class="footer_links">
+		<li><a href="http://diendan.congdongcviet.com/sendmessage.php?s=15147321b478a500671c955a4544ea73" rel="nofollow" accesskey="9">Liên hệ chúng tôi</a></li>
+		<li><a title="Cộng đồng C Việt" href="http://congdongcviet.com/">Cộng đồng C Việt</a></li>
+		
+		
+		<li><a href="http://diendan.congdongcviet.com/archive/index.php?s=15147321b478a500671c955a4544ea73">Archive</a></li>
+		
+		
+		
+		<li><a href="http://diendan.congdongcviet.com/threads/t36221::ban-chat-cua-viec-cap-phat-bo-nho-dong-giai-phong-bo-nho.cpp#top" onclick="document.location.hash=&#39;top&#39;; return false;">Top</a></li>
+	</ul>
+	
+	<script type="text/javascript">
+	<!--
+		// Main vBulletin Javascript Initialization
+		vBulletin_init();
+	//-->
+	</script>
+	
+<script type="text/javascript">
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	ga('create', 'UA-6069265-2', 'congdongcviet.com');
+	ga('send', 'pageview');
+</script>
+	<script language="javascript" type="text/javascript" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/cviet_avim.js.download"></script>
+	<script language="javascript" type="text/javascript" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/cviet_bbcode.js.download"></script>
+</div>
+</div> <!-- closing div for body_wrapper -->
+
+<div class="below_body">
+<div id="footer_time" class="shade footer_time">Toàn bộ thời gian tính theo múi GMT +7. Bây giờ là <span class="time">08:20 PM</span>.</div>
+
+<div id="footer_copyright" class="shade footer_copyright">
+	<!-- Do not remove this copyright notice -->
+	- Sáng lập bởi Kevin Hoang @2006<br>- Nguồn đã được cung cấp bởi vBulletin® 4.2.2<br>- Bản quyền nguồn ©2018 vBulletin Solutions, Inc
+	<!-- Do not remove this copyright notice -->	
+</div>
+<div id="footer_morecopyright" class="shade footer_morecopyright">
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	<img src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/cron.php" alt="" width="1" height="1" border="0">
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	- Sử dụng và phát triển bởi <a href="http://www.congdongcviet.com/" title="Cộng đồng C Việt">Cộng đồng C Việt®</a>: 2006 - 2014<br>
+	
+</div>
+
+
+</div>
+
+<iframe id="google_osd_static_frame_3013875259845" name="google_osd_static_frame" __idm_frm__="28" style="display: none; width: 0px; height: 0px;" src="./Thủ thuật C_ Bản chất của việc cấp phát bộ nhớ động và giải phóng bộ nhớ_files/saved_resource(6).html"></iframe></body></html>

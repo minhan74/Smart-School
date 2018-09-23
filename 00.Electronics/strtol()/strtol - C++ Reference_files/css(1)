@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/l/font?kit=KFOlCnqEu92Fr1MmSU5vBgUgCufN18AHNivmUg5-AFC9PIFkRyX-xmCv5C9SqhY&skey=11ce8ad5f54705ca&v=v18) format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/l/font?kit=KFOmCnqEu92Fr1Me4H5SIxECaIm72NgcKCzVYj16BVOwM4phQCbi2nyq4yU&skey=a0a0114a1dcab3ac&v=v18) format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/l/font?kit=KFOlCnqEu92Fr1MmWUlvBgUgCufN18AHNivmUg5-AFC9PIFkRyX-xmCv5C9SqhY&skey=c06e7213f788649e&v=v18) format('woff2');
+}

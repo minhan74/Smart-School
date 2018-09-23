@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<!-- saved from url=(0096)http://www.mschoeffler.de/2018/01/05/arduino-tutorial-how-to-use-the-rdm630-rdm6300-rfid-reader/ -->
+<html lang="en-US" slick-uniqueid="3"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width">
+<title>Arduino-Tutorial: How to use the RDM630/RDM6300 RFID reader | Michael Schoeffler</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="http://www.mschoeffler.de/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="http://www.mschoeffler.de/wp-content/themes/twentytwelve/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel="dns-prefetch" href="http://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="http://s.w.org/">
+<link href="https://fonts.gstatic.com/" crossorigin="" rel="preconnect">
+<link rel="alternate" type="application/rss+xml" title="Michael Schoeffler » Feed" href="http://www.mschoeffler.de/feed/">
+<link rel="alternate" type="application/rss+xml" title="Michael Schoeffler » Comments Feed" href="http://www.mschoeffler.de/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Michael Schoeffler » Arduino-Tutorial: How to use the RDM630/RDM6300 RFID reader Comments Feed" href="http://www.mschoeffler.de/2018/01/05/arduino-tutorial-how-to-use-the-rdm630-rdm6300-rfid-reader/feed/">
+		<script async="" src="./Arduino-Tutorial_ How to use the RDM630_RDM6300 RFID reader _ Michael Schoeffler_files/analytics.js.download"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/www.mschoeffler.de\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.6"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56692,8205,9792,65039],[55357,56692,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Arduino-Tutorial_ How to use the RDM630_RDM6300 RFID reader _ Michael Schoeffler_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="quickaffiliate-frontend-css" href="./Arduino-Tutorial_ How to use the RDM630_RDM6300 RFID reader _ Michael Schoeffler_files/frontend.css" type="text/css" media="all">
+<link rel="stylesheet" id="twentytwelve-fonts-css" href="./Arduino-Tutorial_ How to use the RDM630_RDM6300 RFID reader _ Michael Schoeffler_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="twentytwelve-style-css" href="./Arduino-Tutorial_ How to use the RDM630_RDM6300 RFID reader _ Michael Schoeffler_files/style.css" type="text/css" media="all">
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentytwelve-ie-css'  href='http://www.mschoeffler.de/wp-content/themes/twentytwelve/css/ie.css?ver=20121010' type='text/css' media='all' />
+<![endif]-->
+<link rel="stylesheet" id="easy_table_style-css" href="./Arduino-Tutorial_ How to use the RDM630_RDM6300 RFID reader _ Michael Schoeffler_files/style(1).css" type="text/css" media="all">
+<link rel="stylesheet" id="enlighter-local-css" href="./Arduino-Tutorial_ How to use the RDM630_RDM6300 RFID reader _ Michael Schoeffler_files/EnlighterJS.min.css" type="text/css" media="all">
+<script type="text/javascript" src="./Arduino-Tutorial_ How to use the RDM630_RDM6300 RFID reader _ Michael Schoeffler_files/jquery.js.download"></script>
+<script type="text/javascript" src="./Arduino-Tutorial_ How to use the RDM630_RDM6300 RFID reader _ Michael Schoeffler_files/jquery-migrate.min.js.download"></script>
+<script type="text/javascript" src="./Arduino-Tutorial_ How to use the RDM630_RDM6300 RFID reader _ Michael Schoeffler_files/frontend.min.js.download"></script>
+<link rel="https://api.w.org/" href="http://www.mschoeffler.de/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.mschoeffler.de/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.mschoeffler.de/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Tutorial: Serial Connection between Java Application and Arduino Uno" href="http://www.mschoeffler.de/2017/12/29/tutorial-serial-connection-between-java-application-and-arduino-uno/">
+<link rel="next" title="How to do statistics with an Arduino? (Arduino -&gt; SD card -&gt; R)" href="http://www.mschoeffler.de/2018/03/09/how-to-do-statistics-with-an-arduino-arduino-sd-card-r/">
+<meta name="generator" content="WordPress 4.9.6">
+<link rel="canonical" href="http://www.mschoeffler.de/2018/01/05/arduino-tutorial-how-to-use-the-rdm630-rdm6300-rfid-reader/">
+<link rel="shortlink" href="http://www.mschoeffler.de/?p=459">
+<link rel="alternate" type="application/json+oembed" href="http://www.mschoeffler.de/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.mschoeffler.de%2F2018%2F01%2F05%2Farduino-tutorial-how-to-use-the-rdm630-rdm6300-rfid-reader%2F">
+<link rel="alternate" type="text/xml+oembed" href="http://www.mschoeffler.de/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.mschoeffler.de%2F2018%2F01%2F05%2Farduino-tutorial-how-to-use-the-rdm630-rdm6300-rfid-reader%2F&amp;format=xml">
+</head>
+
+<body class="post-template-default single single-post postid-459 single-format-standard custom-font-enabled single-author">
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header" role="banner">
+		<hgroup>
+			<h1 class="site-title"><a href="http://www.mschoeffler.de/" title="Michael Schoeffler" rel="home">Michael Schoeffler</a></h1>
+			<h2 class="site-description">Personal Homepage</h2>
+		</hgroup>
+
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<button class="menu-toggle">Menu</button>
+			<a class="assistive-text" href="http://www.mschoeffler.de/2018/01/05/arduino-tutorial-how-to-use-the-rdm630-rdm6300-rfid-reader/#content" title="Skip to content">Skip to content</a>
+			<div class="nav-menu"><ul>
+<li><a href="http://www.mschoeffler.de/">Home</a></li><li class="page_item page-item-2"><a href="http://www.mschoeffler.de/about-me/">About Me</a></li>
+<li class="page_item page-item-9"><a href="http://www.mschoeffler.de/imprint/">Imprint</a></li>
+</ul></div>
+		</nav><!-- #site-navigation -->
+
+			</header><!-- #masthead -->
+
+	<div id="main" class="wrapper">
+
+	<div id="primary" class="site-content">
+		<div id="content" role="main">
+
+			
+				
+	<article id="post-459" class="post-459 post type-post status-publish format-standard hentry category-development">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">Arduino-Tutorial: How to use the RDM630/RDM6300 RFID reader</h1>
+										<div class="comments-link">
+					<a href="http://www.mschoeffler.de/2018/01/05/arduino-tutorial-how-to-use-the-rdm630-rdm6300-rfid-reader/#respond"><span class="leave-reply">Leave a reply</span></a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<div id="attachment_462" style="width: 310px" class="wp-caption alignright"><a href="http://www.mschoeffler.de/wp-content/uploads/2018/01/rdm6300_and_rdm630.jpg"><img class="size-medium wp-image-462" src="./Arduino-Tutorial_ How to use the RDM630_RDM6300 RFID reader _ Michael Schoeffler_files/rdm6300_and_rdm630-300x212.jpg" alt="On the left hand side is the RM6300, which is a very affordable (1-3$) RFID reader. On the right hand side, is the RDM630. The RDM630 is more expensive (10-15$) but also more robust." width="300" height="212" srcset="http://www.mschoeffler.de/wp-content/uploads/2018/01/rdm6300_and_rdm630-300x212.jpg 300w, http://www.mschoeffler.de/wp-content/uploads/2018/01/rdm6300_and_rdm630-768x543.jpg 768w, http://www.mschoeffler.de/wp-content/uploads/2018/01/rdm6300_and_rdm630-1024x724.jpg 1024w, http://www.mschoeffler.de/wp-content/uploads/2018/01/rdm6300_and_rdm630-624x441.jpg 624w, http://www.mschoeffler.de/wp-content/uploads/2018/01/rdm6300_and_rdm630.jpg 1528w" sizes="(max-width: 300px) 100vw, 300px"></a><p class="wp-caption-text">On the left hand side is the RDM6300, which is a very affordable (1-3$) RFID reader. On the right hand side, is the RDM630. The RDM630 is more expensive (10-15$) but also more robust.</p></div>
+<p>Seeedstudio’s RDM630 and the RDM6300 are two different types of RFID readers, even though they often get mixed up. Besides the similar names, another reason for the confusion might be that they share the same pin layout and transfer protocol. According to my knowledge, besides the same technical functionality, they have nothing else in common (like same manufacturer, predecessor/successor version, etc.). Usually, you should be able to purchase&nbsp;Seeedstudio’s RDM630 for about 10-15$ and the RDM6300 for about 1-3$. In my opinion, the price difference can be easily justified as the RDM630 is more robust and allows much higher reading distances.</p>
+<p>Both readers work at a frequency of 125 kHz and enable to read&nbsp;EM4100-compatible tags. Other tags (for example EM4305 tags) do not (or might not) work with these readers.</p>
+<p>In this tutorial, I demonstrate how to use the RDM6300 and the RDM630 with an Arduino Uno. Luckily, both RFID readers use the same protocol via a serial connection. As a result, the same source code can be used to make both readers work. Therefore, regardless of whether you own an RDM630 or RDM6300, this tutorial should be of use to you if you want to make it work with an Arduino.</p>
+<p><strong>List of materials:</strong><br>
+– Arduino Uno&nbsp; <small>[Search on <a href="https://1smart.click/to/sld/st-ali?q=Arduino+Uno">Aliexpress</a> | <a href="https://1smart.click/to/sld/st-azn?q=Arduino+Uno">Amazon</a>]</small><br>
+– Jumper wires&nbsp; <small>[Search on <a href="https://1smart.click/to/sld/st-ali?q=Jumper+wires">Aliexpress</a> | <a href="https://1smart.click/to/sld/st-azn?q=Jumper+wires">Amazon</a>]</small><br>
+– Seeedstudio RDM630* <small>[Search on <a href="https://1smart.click/to/sld/st-ali?q=rfid+reader+rdm">Aliexpress</a> | <a href="https://1smart.click/to/sld/st-azn?q=rfid+reader+rdm">Amazon</a>]</small><br>
+– RDM6300 <small>[Search on <a href="https://1smart.click/to/sld/st-ali?q=rfid+reader+rdm">Aliexpress</a> | <a href="https://1smart.click/to/sld/st-azn?q=rfid+reader+rdm">Amazon</a>]</small><br>
+– 125 kHz tags (check for EM4100 compatibility) <small>[Search on <a href="https://1smart.click/to/sld/st-ali?q=125khz+tags">Aliexpress</a> | <a href="https://1smart.click/to/sld/st-azn?q=125khz+tags">Amazon</a>]</small><br>
+* If you are looking for an RDM630, please keep in mind that many offers are wrongly labeled. You can find many products that are advertised as “RDM630”, although they are of type RDM6300. Therefore, take a close look at the pictures.</p>
+<p><strong>Pin layout RDM630 / RDM6300:</strong></p>
+<div id="attachment_463" style="width: 310px" class="wp-caption alignright"><a href="http://www.mschoeffler.de/wp-content/uploads/2018/01/pin_layout_rdm_630_6300.jpg"><img class="size-medium wp-image-463" src="./Arduino-Tutorial_ How to use the RDM630_RDM6300 RFID reader _ Michael Schoeffler_files/pin_layout_rdm_630_6300-300x206.jpg" alt="Pin layout of the RDM630. The RDM6300 has the exact same pin layout." width="300" height="206" srcset="http://www.mschoeffler.de/wp-content/uploads/2018/01/pin_layout_rdm_630_6300-300x206.jpg 300w, http://www.mschoeffler.de/wp-content/uploads/2018/01/pin_layout_rdm_630_6300-768x529.jpg 768w, http://www.mschoeffler.de/wp-content/uploads/2018/01/pin_layout_rdm_630_6300-1024x705.jpg 1024w, http://www.mschoeffler.de/wp-content/uploads/2018/01/pin_layout_rdm_630_6300-624x429.jpg 624w, http://www.mschoeffler.de/wp-content/uploads/2018/01/pin_layout_rdm_630_6300.jpg 1482w" sizes="(max-width: 300px) 100vw, 300px"></a><p class="wp-caption-text">Pin layout of the RDM630. The RDM6300 has the exact same pin layout.</p></div>
+<p>In total, the RDM630/RDM6300 has 9 pins, where Vcc and GND exist two times. The Vcc pin must be connected to a 5V DC. ANT1 and ANT2 are used to connect an antenna to the board. Typically, the RDM630 as well as the RDM6300 already come with an antenna. Nonetheless, it is possible to switch the antenna, for example to a custom-made antenna. TX is used to transmit data and RX is used to retrieve data. The LED pin can be used to quickly lookup whether an RFID tag was successfully read. If RFID tag is not present, the LED pin is at 5V (HIGH). If an RFID was read, the LED pin goes to 0V (LOW) for some moments (yes, it goes from HIGH to LOW!).</p>
+<p><strong>Wiring to Arduino Uno:</strong></p>
+<div id="attachment_464" style="width: 310px" class="wp-caption alignright"><a href="http://www.mschoeffler.de/wp-content/uploads/2018/01/wiring_arduino_rdm630_rdm6300.jpg"><img class="size-medium wp-image-464" src="./Arduino-Tutorial_ How to use the RDM630_RDM6300 RFID reader _ Michael Schoeffler_files/wiring_arduino_rdm630_rdm6300-300x200.jpg" alt="Wiring between an Arduino Uno and a RDM6300. The same wiring can be applied to an RDM630." width="300" height="200" srcset="http://www.mschoeffler.de/wp-content/uploads/2018/01/wiring_arduino_rdm630_rdm6300-300x200.jpg 300w, http://www.mschoeffler.de/wp-content/uploads/2018/01/wiring_arduino_rdm630_rdm6300-768x512.jpg 768w, http://www.mschoeffler.de/wp-content/uploads/2018/01/wiring_arduino_rdm630_rdm6300-1024x683.jpg 1024w, http://www.mschoeffler.de/wp-content/uploads/2018/01/wiring_arduino_rdm630_rdm6300-624x416.jpg 624w" sizes="(max-width: 300px) 100vw, 300px"></a><p class="wp-caption-text">Wiring between an Arduino Uno and a RDM6300. The same wiring can be applied to an RDM630.</p></div>
+<p>In this tutorial, four pins of the RDM630/RDM6300 are wired to the Arduino Uno. Vcc has to be connected to the Arduino’s 5V pin (red wire) and GND to the Arduino’s GND (black wire). The TX pin has to be connected to digital pin #6 (green wire). Basically, the RX pin is not required as we do not send data to the RFID module in this tutorial. For the sake of completeness, RX is connected to digital pin #8 (yellow wire). Lastly, the antenna is connected to ANT1 and ANT2 (polarity does not matter).</p>
+<p><strong>Example source code:</strong><br>
+As mentioned before, the same source code can be used with both models (I tested the code with both models). Basically, when an RFID tag was detected the RDM630/RDM6300 sends a frame with 14 bytes:&nbsp; head [1 byte], data [10 byte],&nbsp; checksum [2 byte], and tail [1 byte]. The head (or preamble) is always 0x02. Similarly, the tail is always 0x03. The data field contains ASCII-encoded HEX values. Sometimes, manufacturers tend to split the RFID tag data field into two parts: version and tag. Therefore, depending on your RFID tag type, the first two bytes of data might be the version and the other 8 bytes the actual RFID tag. I considered this in my source code. In order to calculate the checksum from the data field, one has to perform an XOR-operation over all data entries.</p>
+<pre class="EnlighterJSRAW" data-enlighter-language="c" style="display: none;">// (c) Michael Schoeffler 2018, http://www.mschoeffler.de
+#include &lt;SoftwareSerial.h&gt;
+
+const int BUFFER_SIZE = 14; // RFID DATA FRAME FORMAT: 1byte head (value: 2), 10byte data (2byte version + 8byte tag), 2byte checksum, 1byte tail (value: 3)
+const int DATA_SIZE = 10; // 10byte data (2byte version + 8byte tag)
+const int DATA_VERSION_SIZE = 2; // 2byte version (actual meaning of these two bytes may vary)
+const int DATA_TAG_SIZE = 8; // 8byte tag
+const int CHECKSUM_SIZE = 2; // 2byte checksum
+
+SoftwareSerial ssrfid = SoftwareSerial(6,8); 
+
+uint8_t buffer[BUFFER_SIZE]; // used to store an incoming data frame 
+int buffer_index = 0;
+
+void setup() {
+ Serial.begin(9600); 
+ 
+ ssrfid.begin(9600);
+ ssrfid.listen(); 
+ 
+ Serial.println("INIT DONE");
+}
+
+void loop() {
+  if (ssrfid.available() &gt; 0){
+    bool call_extract_tag = false;
+    
+    int ssvalue = ssrfid.read(); // read 
+    if (ssvalue == -1) { // no data was read
+      return;
+    }
+
+    if (ssvalue == 2) { // RDM630/RDM6300 found a tag =&gt; tag incoming 
+      buffer_index = 0;
+    } else if (ssvalue == 3) { // tag has been fully transmitted       
+      call_extract_tag = true; // extract tag at the end of the function call
+    }
+
+    if (buffer_index &gt;= BUFFER_SIZE) { // checking for a buffer overflow (It's very unlikely that an buffer overflow comes up!)
+      Serial.println("Error: Buffer overflow detected!");
+      return;
+    }
+    
+    buffer[buffer_index++] = ssvalue; // everything is alright =&gt; copy current value to buffer
+
+    if (call_extract_tag == true) {
+      if (buffer_index == BUFFER_SIZE) {
+        unsigned tag = extract_tag();
+      } else { // something is wrong... start again looking for preamble (value: 2)
+        buffer_index = 0;
+        return;
+      }
+    }    
+  }    
+}
+
+unsigned extract_tag() {
+    uint8_t msg_head = buffer[0];
+    uint8_t *msg_data = buffer + 1; // 10 byte =&gt; data contains 2byte version + 8byte tag
+    uint8_t *msg_data_version = msg_data;
+    uint8_t *msg_data_tag = msg_data + 2;
+    uint8_t *msg_checksum = buffer + 11; // 2 byte
+    uint8_t msg_tail = buffer[13];
+
+    // print message that was sent from RDM630/RDM6300
+    Serial.println("--------");
+
+    Serial.print("Message-Head: ");
+    Serial.println(msg_head);
+
+    Serial.println("Message-Data (HEX): ");
+    for (int i = 0; i &lt; DATA_VERSION_SIZE; ++i) {
+      Serial.print(char(msg_data_version[i]));
+    }
+    Serial.println(" (version)");
+    for (int i = 0; i &lt; DATA_TAG_SIZE; ++i) {
+      Serial.print(char(msg_data_tag[i]));
+    }
+    Serial.println(" (tag)");
+
+    Serial.print("Message-Checksum (HEX): ");
+    for (int i = 0; i &lt; CHECKSUM_SIZE; ++i) {
+      Serial.print(char(msg_checksum[i]));
+    }
+    Serial.println("");
+
+    Serial.print("Message-Tail: ");
+    Serial.println(msg_tail);
+
+    Serial.println("--");
+
+    long tag = hexstr_to_value(msg_data_tag, DATA_TAG_SIZE);
+    Serial.print("Extracted Tag: ");
+    Serial.println(tag);
+
+    long checksum = 0;
+    for (int i = 0; i &lt; DATA_SIZE; i+= CHECKSUM_SIZE) {
+      long val = hexstr_to_value(msg_data + i, CHECKSUM_SIZE);
+      checksum ^= val;
+    }
+    Serial.print("Extracted Checksum (HEX): ");
+    Serial.print(checksum, HEX);
+    if (checksum == hexstr_to_value(msg_checksum, CHECKSUM_SIZE)) { // compare calculated checksum to retrieved checksum
+      Serial.print(" (OK)"); // calculated checksum corresponds to transmitted checksum!
+    } else {
+      Serial.print(" (NOT OK)"); // checksums do not match
+    }
+
+    Serial.println("");
+    Serial.println("--------");
+
+    return tag;
+}
+
+long hexstr_to_value(char *str, unsigned int length) { // converts a hexadecimal value (encoded as ASCII string) to a numeric value
+  char* copy = malloc((sizeof(char) * length) + 1); 
+  memcpy(copy, str, sizeof(char) * length);
+  copy[length] = '\0'; 
+  // the variable "copy" is a copy of the parameter "str". "copy" has an additional '\0' element to make sure that "str" is null-terminated.
+  long value = strtol(copy, NULL, 16);  // strtol converts a null-terminated string to a long value
+  free(copy); // clean up 
+  return value;
+}
+
+
+</pre><div class="EnlighterJSWrapper enlighterEnlighterJSWrapper"><ol class="hoverEnabled enlighterEnlighterJS EnlighterJS"><li class=" odd"><span class="co1">// (c) Michael Schoeffler 2018, http://www.mschoeffler.de</span><span class=""></span></li><li class=" even"><span class=""></span><span class="kw2">#include &lt;SoftwareSerial.h&gt;</span><span class=""></span></li><li class=" odd"><span class=""></span></li><li class=" even"><span class=""></span><span class="kw1">const</span><span class=""> </span><span class="kw1">int</span><span class=""> BUFFER_SIZE = </span><span class="nu0">14</span><span class="">;</span><span class="co1"> // RFID DATA FRAME FORMAT: 1byte head (value: 2), 10byte data (2byte version + 8byte tag), 2byte checksum, 1byte tail (value: 3)</span><span class=""></span></li><li class=" odd"><span class=""></span><span class="kw1">const</span><span class=""> </span><span class="kw1">int</span><span class=""> DATA_SIZE = </span><span class="nu0">10</span><span class="">;</span><span class="co1"> // 10byte data (2byte version + 8byte tag)</span><span class=""></span></li><li class=" even"><span class=""></span><span class="kw1">const</span><span class=""> </span><span class="kw1">int</span><span class=""> DATA_VERSION_SIZE = </span><span class="nu0">2</span><span class="">;</span><span class="co1"> // 2byte version (actual meaning of these two bytes may vary)</span><span class=""></span></li><li class=" odd"><span class=""></span><span class="kw1">const</span><span class=""> </span><span class="kw1">int</span><span class=""> DATA_TAG_SIZE = </span><span class="nu0">8</span><span class="">;</span><span class="co1"> // 8byte tag</span><span class=""></span></li><li class=" even"><span class=""></span><span class="kw1">const</span><span class=""> </span><span class="kw1">int</span><span class=""> CHECKSUM_SIZE = </span><span class="nu0">2</span><span class="">;</span><span class="co1"> // 2byte checksum</span><span class=""></span></li><li class=" odd"><span class=""></span></li><li class=" even"><span class="">SoftwareSerial ssrfid = </span><span class="de1">SoftwareSerial</span><span class="br0">(</span><span class="nu0">6</span><span class="">,</span><span class="nu0">8</span><span class="br0">)</span><span class="">; </span></li><li class=" odd"><span class=""></span></li><li class=" even"><span class="">uint8_t buffer</span><span class="br0">[</span><span class="">BUFFER_SIZE</span><span class="br0">]</span><span class="">;</span><span class="co1"> // used to store an incoming data frame </span><span class=""></span></li><li class=" odd"><span class=""></span><span class="kw1">int</span><span class=""> buffer_index = </span><span class="nu0">0</span><span class="">;</span></li><li class=" even"><span class=""></span></li><li class=" odd"><span class=""></span><span class="kw1">void</span><span class=""> </span><span class="de1">setup</span><span class="br0">(</span><span class="br0">)</span><span class=""> </span><span class="br0">{</span><span class=""></span></li><li class=" even"><span class=""> Serial.</span><span class="me0">begin</span><span class="br0">(</span><span class="nu0">9600</span><span class="br0">)</span><span class="">; </span></li><li class=" odd"><span class=""> </span></li><li class=" even"><span class=""> ssrfid.</span><span class="me0">begin</span><span class="br0">(</span><span class="nu0">9600</span><span class="br0">)</span><span class="">;</span></li><li class=" odd"><span class=""> ssrfid.</span><span class="de1">listen</span><span class="br0">(</span><span class="br0">)</span><span class="">; </span></li><li class=" even"><span class=""> </span></li><li class=" odd"><span class=""> Serial.</span><span class="me0">println</span><span class="br0">(</span><span class="st1">"INIT DONE"</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class=""></span><span class="br0">}</span><span class=""></span></li><li class=" odd"><span class=""></span></li><li class=" even"><span class=""></span><span class="kw1">void</span><span class=""> </span><span class="de1">loop</span><span class="br0">(</span><span class="br0">)</span><span class=""> </span><span class="br0">{</span><span class=""></span></li><li class=" odd"><span class="">  </span><span class="kw1">if</span><span class=""> </span><span class="br0">(</span><span class="">ssrfid.</span><span class="me0">available</span><span class="br0">(</span><span class="br0">)</span><span class=""> &gt; </span><span class="nu0">0</span><span class="br0">)</span><span class="br0">{</span><span class=""></span></li><li class=" even"><span class="">    </span><span class="kw1">bool</span><span class=""> call_extract_tag = </span><span class="kw1">false</span><span class="">;</span></li><li class=" odd"><span class="">    </span></li><li class=" even"><span class="">    </span><span class="kw1">int</span><span class=""> ssvalue = ssrfid.</span><span class="de1">read</span><span class="br0">(</span><span class="br0">)</span><span class="">;</span><span class="co1"> // read </span><span class=""></span></li><li class=" odd"><span class="">    </span><span class="kw1">if</span><span class=""> </span><span class="br0">(</span><span class="">ssvalue == -</span><span class="nu0">1</span><span class="br0">)</span><span class=""> </span><span class="br0">{</span><span class="co1"> // no data was read</span><span class=""></span></li><li class=" even"><span class="">      </span><span class="kw1">return</span><span class="">;</span></li><li class=" odd"><span class="">    </span><span class="br0">}</span><span class=""></span></li><li class=" even"><span class=""></span></li><li class=" odd"><span class="">    </span><span class="kw1">if</span><span class=""> </span><span class="br0">(</span><span class="">ssvalue == </span><span class="nu0">2</span><span class="br0">)</span><span class=""> </span><span class="br0">{</span><span class="co1"> // RDM630/RDM6300 found a tag =&gt; tag incoming </span><span class=""></span></li><li class=" even"><span class="">      buffer_index = </span><span class="nu0">0</span><span class="">;</span></li><li class=" odd"><span class="">    </span><span class="br0">}</span><span class=""> </span><span class="kw1">else</span><span class=""> </span><span class="de1">if</span><span class=""> </span><span class="br0">(</span><span class="">ssvalue == </span><span class="nu0">3</span><span class="br0">)</span><span class=""> </span><span class="br0">{</span><span class="co1"> // tag has been fully transmitted       </span><span class=""></span></li><li class=" even"><span class="">      call_extract_tag = </span><span class="kw1">true</span><span class="">;</span><span class="co1"> // extract tag at the end of the function call</span><span class=""></span></li><li class=" odd"><span class="">    </span><span class="br0">}</span><span class=""></span></li><li class=" even"><span class=""></span></li><li class=" odd"><span class="">    </span><span class="de1">if</span><span class=""> </span><span class="br0">(</span><span class="">buffer_index &gt;= BUFFER_SIZE</span><span class="br0">)</span><span class=""> </span><span class="br0">{</span><span class="co1"> // checking for a buffer overflow (It's very unlikely that an buffer overflow comes up!)</span><span class=""></span></li><li class=" even"><span class="">      Serial.</span><span class="me0">println</span><span class="br0">(</span><span class="st1">"Error: Buffer overflow detected!"</span><span class="br0">)</span><span class="">;</span></li><li class=" odd"><span class="">      </span><span class="kw1">return</span><span class="">;</span></li><li class=" even"><span class="">    </span><span class="br0">}</span><span class=""></span></li><li class=" odd"><span class="">    </span></li><li class=" even"><span class="">    buffer</span><span class="br0">[</span><span class="">buffer_index++</span><span class="br0">]</span><span class=""> = ssvalue;</span><span class="co1"> // everything is alright =&gt; copy current value to buffer</span><span class=""></span></li><li class=" odd"><span class=""></span></li><li class=" even"><span class="">    </span><span class="de1">if</span><span class=""> </span><span class="br0">(</span><span class="">call_extract_tag == </span><span class="kw1">true</span><span class="br0">)</span><span class=""> </span><span class="br0">{</span><span class=""></span></li><li class=" odd"><span class="">      </span><span class="de1">if</span><span class=""> </span><span class="br0">(</span><span class="">buffer_index == BUFFER_SIZE</span><span class="br0">)</span><span class=""> </span><span class="br0">{</span><span class=""></span></li><li class=" even"><span class="">        </span><span class="kw1">unsigned</span><span class=""> tag = </span><span class="de1">extract_tag</span><span class="br0">(</span><span class="br0">)</span><span class="">;</span></li><li class=" odd"><span class="">      </span><span class="br0">}</span><span class=""> </span><span class="kw1">else</span><span class=""> </span><span class="br0">{</span><span class="co1"> // something is wrong... start again looking for preamble (value: 2)</span><span class=""></span></li><li class=" even"><span class="">        buffer_index = </span><span class="nu0">0</span><span class="">;</span></li><li class=" odd"><span class="">        </span><span class="kw1">return</span><span class="">;</span></li><li class=" even"><span class="">      </span><span class="br0">}</span><span class=""></span></li><li class=" odd"><span class="">    </span><span class="br0">}</span><span class="">    </span></li><li class=" even"><span class="">  </span><span class="br0">}</span><span class="">    </span></li><li class=" odd"><span class=""></span><span class="br0">}</span><span class=""></span></li><li class=" even"><span class=""></span></li><li class=" odd"><span class=""></span><span class="kw1">unsigned</span><span class=""> </span><span class="de1">extract_tag</span><span class="br0">(</span><span class="br0">)</span><span class=""> </span><span class="br0">{</span><span class=""></span></li><li class=" even"><span class="">    uint8_t msg_head = buffer</span><span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span><span class="">;</span></li><li class=" odd"><span class="">    uint8_t *msg_data = buffer + </span><span class="nu0">1</span><span class="">;</span><span class="co1"> // 10 byte =&gt; data contains 2byte version + 8byte tag</span><span class=""></span></li><li class=" even"><span class="">    uint8_t *msg_data_version = msg_data;</span></li><li class=" odd"><span class="">    uint8_t *msg_data_tag = msg_data + </span><span class="nu0">2</span><span class="">;</span></li><li class=" even"><span class="">    uint8_t *msg_checksum = buffer + </span><span class="nu0">11</span><span class="">;</span><span class="co1"> // 2 byte</span><span class=""></span></li><li class=" odd"><span class="">    uint8_t msg_tail = buffer</span><span class="br0">[</span><span class="nu0">13</span><span class="br0">]</span><span class="">;</span></li><li class=" even"><span class=""></span></li><li class=" odd"><span class="">   </span><span class="co1"> // print message that was sent from RDM630/RDM6300</span><span class=""></span></li><li class=" even"><span class="">    Serial.</span><span class="me0">println</span><span class="br0">(</span><span class="st1">"--------"</span><span class="br0">)</span><span class="">;</span></li><li class=" odd"><span class=""></span></li><li class=" even"><span class="">    Serial.</span><span class="de1">print</span><span class="br0">(</span><span class="st1">"Message-Head: "</span><span class="br0">)</span><span class="">;</span></li><li class=" odd"><span class="">    Serial.</span><span class="de1">println</span><span class="br0">(</span><span class="">msg_head</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class=""></span></li><li class=" odd"><span class="">    Serial.</span><span class="de1">println</span><span class="br0">(</span><span class="st1">"Message-Data (HEX): "</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class="">    </span><span class="de1">for</span><span class=""> </span><span class="br0">(</span><span class="kw1">int</span><span class=""> i = </span><span class="nu0">0</span><span class="">; i &lt; DATA_VERSION_SIZE; ++i</span><span class="br0">)</span><span class=""> </span><span class="br0">{</span><span class=""></span></li><li class=" odd"><span class="">      Serial.</span><span class="me0">print</span><span class="br0">(</span><span class="kw1">char</span><span class="br0">(</span><span class="">msg_data_version</span><span class="br0">[</span><span class="">i</span><span class="br0">]</span><span class="br0">)</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class="">    </span><span class="br0">}</span><span class=""></span></li><li class=" odd"><span class="">    Serial.</span><span class="de1">println</span><span class="br0">(</span><span class="st1">" (version)"</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class="">    </span><span class="kw1">for</span><span class=""> </span><span class="br0">(</span><span class="kw1">int</span><span class=""> i = </span><span class="nu0">0</span><span class="">; i &lt; DATA_TAG_SIZE; ++i</span><span class="br0">)</span><span class=""> </span><span class="br0">{</span><span class=""></span></li><li class=" odd"><span class="">      Serial.</span><span class="me0">print</span><span class="br0">(</span><span class="kw1">char</span><span class="br0">(</span><span class="">msg_data_tag</span><span class="br0">[</span><span class="">i</span><span class="br0">]</span><span class="br0">)</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class="">    </span><span class="br0">}</span><span class=""></span></li><li class=" odd"><span class="">    Serial.</span><span class="de1">println</span><span class="br0">(</span><span class="st1">" (tag)"</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class=""></span></li><li class=" odd"><span class="">    Serial.</span><span class="de1">print</span><span class="br0">(</span><span class="st1">"Message-Checksum (HEX): "</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class="">    </span><span class="kw1">for</span><span class=""> </span><span class="br0">(</span><span class="kw1">int</span><span class=""> i = </span><span class="nu0">0</span><span class="">; i &lt; CHECKSUM_SIZE; ++i</span><span class="br0">)</span><span class=""> </span><span class="br0">{</span><span class=""></span></li><li class=" odd"><span class="">      Serial.</span><span class="me0">print</span><span class="br0">(</span><span class="de1">char</span><span class="br0">(</span><span class="">msg_checksum</span><span class="br0">[</span><span class="">i</span><span class="br0">]</span><span class="br0">)</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class="">    </span><span class="br0">}</span><span class=""></span></li><li class=" odd"><span class="">    Serial.</span><span class="de1">println</span><span class="br0">(</span><span class="st1">""</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class=""></span></li><li class=" odd"><span class="">    Serial.</span><span class="me0">print</span><span class="br0">(</span><span class="st1">"Message-Tail: "</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class="">    Serial.</span><span class="me0">println</span><span class="br0">(</span><span class="">msg_tail</span><span class="br0">)</span><span class="">;</span></li><li class=" odd"><span class=""></span></li><li class=" even"><span class="">    Serial.</span><span class="de1">println</span><span class="br0">(</span><span class="st1">"--"</span><span class="br0">)</span><span class="">;</span></li><li class=" odd"><span class=""></span></li><li class=" even"><span class="">    </span><span class="kw1">long</span><span class=""> tag = </span><span class="de1">hexstr_to_value</span><span class="br0">(</span><span class="">msg_data_tag, DATA_TAG_SIZE</span><span class="br0">)</span><span class="">;</span></li><li class=" odd"><span class="">    Serial.</span><span class="me0">print</span><span class="br0">(</span><span class="st1">"Extracted Tag: "</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class="">    Serial.</span><span class="de1">println</span><span class="br0">(</span><span class="">tag</span><span class="br0">)</span><span class="">;</span></li><li class=" odd"><span class=""></span></li><li class=" even"><span class="">    </span><span class="kw1">long</span><span class=""> checksum = </span><span class="nu0">0</span><span class="">;</span></li><li class=" odd"><span class="">    </span><span class="de1">for</span><span class=""> </span><span class="br0">(</span><span class="kw1">int</span><span class=""> i = </span><span class="nu0">0</span><span class="">; i &lt; DATA_SIZE; i+= CHECKSUM_SIZE</span><span class="br0">)</span><span class=""> </span><span class="br0">{</span><span class=""></span></li><li class=" even"><span class="">      </span><span class="kw1">long</span><span class=""> val = </span><span class="de1">hexstr_to_value</span><span class="br0">(</span><span class="">msg_data + i, CHECKSUM_SIZE</span><span class="br0">)</span><span class="">;</span></li><li class=" odd"><span class="">      checksum ^= val;</span></li><li class=" even"><span class="">    </span><span class="br0">}</span><span class=""></span></li><li class=" odd"><span class="">    Serial.</span><span class="me0">print</span><span class="br0">(</span><span class="st1">"Extracted Checksum (HEX): "</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class="">    Serial.</span><span class="de1">print</span><span class="br0">(</span><span class="">checksum, HEX</span><span class="br0">)</span><span class="">;</span></li><li class=" odd"><span class="">    </span><span class="de1">if</span><span class=""> </span><span class="br0">(</span><span class="">checksum == </span><span class="de1">hexstr_to_value</span><span class="br0">(</span><span class="">msg_checksum, CHECKSUM_SIZE</span><span class="br0">)</span><span class="br0">)</span><span class=""> </span><span class="br0">{</span><span class="co1"> // compare calculated checksum to retrieved checksum</span><span class=""></span></li><li class=" even"><span class="">      Serial.</span><span class="me0">print</span><span class="br0">(</span><span class="st1">" (OK)"</span><span class="br0">)</span><span class="">;</span><span class="co1"> // calculated checksum corresponds to transmitted checksum!</span><span class=""></span></li><li class=" odd"><span class="">    </span><span class="br0">}</span><span class=""> </span><span class="kw1">else</span><span class=""> </span><span class="br0">{</span><span class=""></span></li><li class=" even"><span class="">      Serial.</span><span class="me0">print</span><span class="br0">(</span><span class="st1">" (NOT OK)"</span><span class="br0">)</span><span class="">;</span><span class="co1"> // checksums do not match</span><span class=""></span></li><li class=" odd"><span class="">    </span><span class="br0">}</span><span class=""></span></li><li class=" even"><span class=""></span></li><li class=" odd"><span class="">    Serial.</span><span class="me0">println</span><span class="br0">(</span><span class="st1">""</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class="">    Serial.</span><span class="me0">println</span><span class="br0">(</span><span class="st1">"--------"</span><span class="br0">)</span><span class="">;</span></li><li class=" odd"><span class=""></span></li><li class=" even"><span class="">    </span><span class="kw1">return</span><span class=""> tag;</span></li><li class=" odd"><span class=""></span><span class="br0">}</span><span class=""></span></li><li class=" even"><span class=""></span></li><li class=" odd"><span class=""></span><span class="kw1">long</span><span class=""> </span><span class="de1">hexstr_to_value</span><span class="br0">(</span><span class="kw1">char</span><span class=""> *str, </span><span class="kw1">unsigned</span><span class=""> </span><span class="kw1">int</span><span class=""> length</span><span class="br0">)</span><span class=""> </span><span class="br0">{</span><span class="co1"> // converts a hexadecimal value (encoded as ASCII string) to a numeric value</span><span class=""></span></li><li class=" even"><span class="">  </span><span class="kw1">char</span><span class="">* copy = </span><span class="de1">malloc</span><span class="br0">(</span><span class="br0">(</span><span class="kw1">sizeof</span><span class="br0">(</span><span class="kw1">char</span><span class="br0">)</span><span class=""> * length</span><span class="br0">)</span><span class=""> + </span><span class="nu0">1</span><span class="br0">)</span><span class="">; </span></li><li class=" odd"><span class="">  </span><span class="de1">memcpy</span><span class="br0">(</span><span class="">copy, str, </span><span class="de1">sizeof</span><span class="br0">(</span><span class="kw1">char</span><span class="br0">)</span><span class=""> * length</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class="">  copy</span><span class="br0">[</span><span class="">length</span><span class="br0">]</span><span class=""> = </span><span class="st0">'\0'</span><span class="">; </span></li><li class=" odd"><span class=""> </span><span class="co1"> // the variable "copy" is a copy of the parameter "str". "copy" has an additional '\0' element to make sure that "str" is null-terminated.</span><span class=""></span></li><li class=" even"><span class="">  </span><span class="kw1">long</span><span class=""> value = </span><span class="de1">strtol</span><span class="br0">(</span><span class="">copy, NULL, </span><span class="nu0">16</span><span class="br0">)</span><span class="">; </span><span class="co1"> // strtol converts a null-terminated string to a long value</span><span class=""></span></li><li class=" odd"><span class="">  </span><span class="de1">free</span><span class="br0">(</span><span class="">copy</span><span class="br0">)</span><span class="">;</span><span class="co1"> // clean up </span><span class=""></span></li><li class=" even"><span class="">  </span><span class="kw1">return</span><span class=""> value;</span></li><li class=" odd"><span class=""></span><span class="br0">}</span></li></ol><pre style="display: none;">// (c) Michael Schoeffler 2018, http://www.mschoeffler.de
+#include &lt;SoftwareSerial.h&gt;
+
+const int BUFFER_SIZE = 14; // RFID DATA FRAME FORMAT: 1byte head (value: 2), 10byte data (2byte version + 8byte tag), 2byte checksum, 1byte tail (value: 3)
+const int DATA_SIZE = 10; // 10byte data (2byte version + 8byte tag)
+const int DATA_VERSION_SIZE = 2; // 2byte version (actual meaning of these two bytes may vary)
+const int DATA_TAG_SIZE = 8; // 8byte tag
+const int CHECKSUM_SIZE = 2; // 2byte checksum
+
+SoftwareSerial ssrfid = SoftwareSerial(6,8); 
+
+uint8_t buffer[BUFFER_SIZE]; // used to store an incoming data frame 
+int buffer_index = 0;
+
+void setup() {
+ Serial.begin(9600); 
+ 
+ ssrfid.begin(9600);
+ ssrfid.listen(); 
+ 
+ Serial.println("INIT DONE");
+}
+
+void loop() {
+  if (ssrfid.available() &gt; 0){
+    bool call_extract_tag = false;
+    
+    int ssvalue = ssrfid.read(); // read 
+    if (ssvalue == -1) { // no data was read
+      return;
+    }
+
+    if (ssvalue == 2) { // RDM630/RDM6300 found a tag =&gt; tag incoming 
+      buffer_index = 0;
+    } else if (ssvalue == 3) { // tag has been fully transmitted       
+      call_extract_tag = true; // extract tag at the end of the function call
+    }
+
+    if (buffer_index &gt;= BUFFER_SIZE) { // checking for a buffer overflow (It's very unlikely that an buffer overflow comes up!)
+      Serial.println("Error: Buffer overflow detected!");
+      return;
+    }
+    
+    buffer[buffer_index++] = ssvalue; // everything is alright =&gt; copy current value to buffer
+
+    if (call_extract_tag == true) {
+      if (buffer_index == BUFFER_SIZE) {
+        unsigned tag = extract_tag();
+      } else { // something is wrong... start again looking for preamble (value: 2)
+        buffer_index = 0;
+        return;
+      }
+    }    
+  }    
+}
+
+unsigned extract_tag() {
+    uint8_t msg_head = buffer[0];
+    uint8_t *msg_data = buffer + 1; // 10 byte =&gt; data contains 2byte version + 8byte tag
+    uint8_t *msg_data_version = msg_data;
+    uint8_t *msg_data_tag = msg_data + 2;
+    uint8_t *msg_checksum = buffer + 11; // 2 byte
+    uint8_t msg_tail = buffer[13];
+
+    // print message that was sent from RDM630/RDM6300
+    Serial.println("--------");
+
+    Serial.print("Message-Head: ");
+    Serial.println(msg_head);
+
+    Serial.println("Message-Data (HEX): ");
+    for (int i = 0; i &lt; DATA_VERSION_SIZE; ++i) {
+      Serial.print(char(msg_data_version[i]));
+    }
+    Serial.println(" (version)");
+    for (int i = 0; i &lt; DATA_TAG_SIZE; ++i) {
+      Serial.print(char(msg_data_tag[i]));
+    }
+    Serial.println(" (tag)");
+
+    Serial.print("Message-Checksum (HEX): ");
+    for (int i = 0; i &lt; CHECKSUM_SIZE; ++i) {
+      Serial.print(char(msg_checksum[i]));
+    }
+    Serial.println("");
+
+    Serial.print("Message-Tail: ");
+    Serial.println(msg_tail);
+
+    Serial.println("--");
+
+    long tag = hexstr_to_value(msg_data_tag, DATA_TAG_SIZE);
+    Serial.print("Extracted Tag: ");
+    Serial.println(tag);
+
+    long checksum = 0;
+    for (int i = 0; i &lt; DATA_SIZE; i+= CHECKSUM_SIZE) {
+      long val = hexstr_to_value(msg_data + i, CHECKSUM_SIZE);
+      checksum ^= val;
+    }
+    Serial.print("Extracted Checksum (HEX): ");
+    Serial.print(checksum, HEX);
+    if (checksum == hexstr_to_value(msg_checksum, CHECKSUM_SIZE)) { // compare calculated checksum to retrieved checksum
+      Serial.print(" (OK)"); // calculated checksum corresponds to transmitted checksum!
+    } else {
+      Serial.print(" (NOT OK)"); // checksums do not match
+    }
+
+    Serial.println("");
+    Serial.println("--------");
+
+    return tag;
+}
+
+long hexstr_to_value(char *str, unsigned int length) { // converts a hexadecimal value (encoded as ASCII string) to a numeric value
+  char* copy = malloc((sizeof(char) * length) + 1); 
+  memcpy(copy, str, sizeof(char) * length);
+  copy[length] = '\0'; 
+  // the variable "copy" is a copy of the parameter "str". "copy" has an additional '\0' element to make sure that "str" is null-terminated.
+  long value = strtol(copy, NULL, 16);  // strtol converts a null-terminated string to a long value
+  free(copy); // clean up 
+  return value;
+}</pre><div class="EnlighterJSToolbar"><a class="EnlighterJSInfoButton" title="EnlighterJS Syntax Highlighter"></a><a class="EnlighterJSRawButton" title="Toggle RAW Code"></a><a class="EnlighterJSWindowButton" title="Open Code in new Window"></a><span class="clear"></span></div></div>
+<p>If you execute the source code and hold an RFID tag close to the antenna, the Arduino IDE’s serial monitor should output something like this:</p>
+<p><a href="http://www.mschoeffler.de/wp-content/uploads/2018/01/serial_monitor_read_rdm6300_rdm630.jpg"><img class="aligncenter size-medium wp-image-465" src="./Arduino-Tutorial_ How to use the RDM630_RDM6300 RFID reader _ Michael Schoeffler_files/serial_monitor_read_rdm6300_rdm630-300x200.jpg" alt="" width="300" height="200" srcset="http://www.mschoeffler.de/wp-content/uploads/2018/01/serial_monitor_read_rdm6300_rdm630-300x200.jpg 300w, http://www.mschoeffler.de/wp-content/uploads/2018/01/serial_monitor_read_rdm6300_rdm630-768x512.jpg 768w, http://www.mschoeffler.de/wp-content/uploads/2018/01/serial_monitor_read_rdm6300_rdm630-1024x683.jpg 1024w, http://www.mschoeffler.de/wp-content/uploads/2018/01/serial_monitor_read_rdm6300_rdm630-624x416.jpg 624w" sizes="(max-width: 300px) 100vw, 300px"></a></p>
+<p><strong>Video tutorial:</strong></p>
+<p><iframe width="625" height="352" src="./Arduino-Tutorial_ How to use the RDM630_RDM6300 RFID reader _ Michael Schoeffler_files/l8RDbHd1cak.html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe></p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="http://www.mschoeffler.de/category/development/" rel="category tag">Development</a> on <a href="http://www.mschoeffler.de/2018/01/05/arduino-tutorial-how-to-use-the-rdm630-rdm6300-rfid-reader/" title="1:51 am" rel="bookmark"><time class="entry-date" datetime="2018-01-05T01:51:25+00:00">January 5, 2018</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="http://www.mschoeffler.de/author/mschoeffler/" title="View all posts by mschoeffler" rel="author">mschoeffler</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+
+				<nav class="nav-single">
+					<h3 class="assistive-text">Post navigation</h3>
+					<span class="nav-previous"><a href="http://www.mschoeffler.de/2017/12/29/tutorial-serial-connection-between-java-application-and-arduino-uno/" rel="prev"><span class="meta-nav">←</span> Tutorial: Serial Connection between Java Application and Arduino Uno</a></span>
+					<span class="nav-next"><a href="http://www.mschoeffler.de/2018/03/09/how-to-do-statistics-with-an-arduino-arduino-sd-card-r/" rel="next">How to do statistics with an Arduino? (Arduino -&gt; SD card -&gt; R) <span class="meta-nav">→</span></a></span>
+				</nav><!-- .nav-single -->
+
+				
+<div id="comments" class="comments-area">
+
+	
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.mschoeffler.de/2018/01/05/arduino-tutorial-how-to-use-the-rdm630-rdm6300-rfid-reader/#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="http://www.mschoeffler.de/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required"></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200"></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"><label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="459" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="2ea359511a"></p><p style="display: none;"></p>			<input type="hidden" id="ak_js" name="ak_js" value="1535206459487"></form>
+			</div><!-- #respond -->
+	
+</div><!-- #comments .comments-area -->
+
+			
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+
+			<div id="secondary" class="widget-area" role="complementary">
+			<aside id="search-2" class="widget widget_search"><form role="search" method="get" id="searchform" class="searchform" action="http://www.mschoeffler.de/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" value="" name="s" id="s">
+					<input type="submit" id="searchsubmit" value="Search">
+				</div>
+			</form></aside><aside id="custom_html-3" class="widget_text widget widget_custom_html"><h3 class="widget-title">Social Media</h3><div class="textwidget custom-html-widget"><a href="https://www.linkedin.com/in/michael-schoeffler-02121910a/">Linkedin</a>
+<br>
+<a href="https://scholar.google.de/citations?user=7Pd9rlwAAAAJ&amp;hl=de&amp;oi=ao">Google Scholar</a>
+<br><a href="https://www.youtube.com/channel/UCysfQYof19Zs6btYGeBe85Q">YouTube</a>
+<br><a href="https://twitter.com/mschoeffler_de">Twitter</a>
+<br><a href="https://www.instagram.com/mschoeffler.de/">Instagram</a>
+<br><a href="https://www.xing.com/profile/Michael_Schoeffler">Xing</a><br><a href="https://github.com/mschoeffler">Github</a></div></aside>		<aside id="recent-posts-2" class="widget widget_recent_entries">		<h3 class="widget-title">Recent Posts</h3>		<ul>
+											<li>
+					<a href="http://www.mschoeffler.de/2018/03/09/how-to-do-statistics-with-an-arduino-arduino-sd-card-r/">How to do statistics with an Arduino? (Arduino -&gt; SD card -&gt; R)</a>
+									</li>
+											<li>
+					<a href="http://www.mschoeffler.de/2018/01/05/arduino-tutorial-how-to-use-the-rdm630-rdm6300-rfid-reader/">Arduino-Tutorial: How to use the RDM630/RDM6300 RFID reader</a>
+									</li>
+											<li>
+					<a href="http://www.mschoeffler.de/2017/12/29/tutorial-serial-connection-between-java-application-and-arduino-uno/">Tutorial: Serial Connection between Java Application and Arduino Uno</a>
+									</li>
+											<li>
+					<a href="http://www.mschoeffler.de/2017/12/26/diy-y-adapter-jumper-wire/">DIY: Y-Adapter Jumper Wire</a>
+									</li>
+											<li>
+					<a href="http://www.mschoeffler.de/2017/12/09/example-application-gy-521-module-mpu-6050-breakout-board-and-arduino-uno/">Example Application: GY-521 module (MPU-6050 breakout board) and Arduino Uno</a>
+									</li>
+					</ul>
+		</aside><aside id="archives-2" class="widget widget_archive"><h3 class="widget-title">Archives</h3>		<ul>
+			<li><a href="http://www.mschoeffler.de/2018/03/">March 2018</a></li>
+	<li><a href="http://www.mschoeffler.de/2018/01/">January 2018</a></li>
+	<li><a href="http://www.mschoeffler.de/2017/12/">December 2017</a></li>
+	<li><a href="http://www.mschoeffler.de/2017/11/">November 2017</a></li>
+	<li><a href="http://www.mschoeffler.de/2017/10/">October 2017</a></li>
+	<li><a href="http://www.mschoeffler.de/2017/09/">September 2017</a></li>
+	<li><a href="http://www.mschoeffler.de/2017/08/">August 2017</a></li>
+	<li><a href="http://www.mschoeffler.de/2017/04/">April 2017</a></li>
+	<li><a href="http://www.mschoeffler.de/2017/02/">February 2017</a></li>
+	<li><a href="http://www.mschoeffler.de/2017/01/">January 2017</a></li>
+	<li><a href="http://www.mschoeffler.de/2015/11/">November 2015</a></li>
+	<li><a href="http://www.mschoeffler.de/2015/05/">May 2015</a></li>
+	<li><a href="http://www.mschoeffler.de/2015/01/">January 2015</a></li>
+	<li><a href="http://www.mschoeffler.de/2014/11/">November 2014</a></li>
+	<li><a href="http://www.mschoeffler.de/2014/09/">September 2014</a></li>
+		</ul>
+		</aside><!--
+Plugin: Custom Meta Widget
+Plugin URL: http://shinraholdings.com/plugins/custom-meta-widget/
+-->
+<aside id="custommetawidget-3" class="widget customMetaWidget"><h3 class="widget-title">Meta</h3>		<ul>
+
+		
+		
+					<li><a href="http://www.mschoeffler.de/feed/">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+		
+
+		
+			<li><a href="http://www.mschoeffler.de/comments/feed/">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+		
+				</ul>
+
+	</aside>		</div><!-- #secondary -->
+		</div><!-- #main .wrapper -->
+	<footer id="colophon" role="contentinfo">
+		<div class="site-info">
+									<a href="https://wordpress.org/" class="imprint" title="Semantic Personal Publishing Platform">
+				Proudly powered by WordPress			</a>
+		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<script>
+    jQuery(document).ready(function () {
+		jQuery.post('http://www.mschoeffler.de?ga_action=googleanalytics_get_script', {action: 'googleanalytics_get_script'}, function(response) {
+			var F = new Function ( response );
+			return( F() );
+		});
+    });
+</script><script type="text/javascript" src="./Arduino-Tutorial_ How to use the RDM630_RDM6300 RFID reader _ Michael Schoeffler_files/comment-reply.min.js.download"></script>
+<script type="text/javascript" src="./Arduino-Tutorial_ How to use the RDM630_RDM6300 RFID reader _ Michael Schoeffler_files/navigation.js.download"></script>
+<script type="text/javascript" src="./Arduino-Tutorial_ How to use the RDM630_RDM6300 RFID reader _ Michael Schoeffler_files/mootools-core-yc.js.download"></script>
+<script type="text/javascript" src="./Arduino-Tutorial_ How to use the RDM630_RDM6300 RFID reader _ Michael Schoeffler_files/EnlighterJS.min.js.download"></script>
+<script type="text/javascript" src="./Arduino-Tutorial_ How to use the RDM630_RDM6300 RFID reader _ Michael Schoeffler_files/wp-embed.min.js.download"></script>
+<script async="async" type="text/javascript" src="./Arduino-Tutorial_ How to use the RDM630_RDM6300 RFID reader _ Michael Schoeffler_files/form.js.download"></script>
+<script type="text/javascript">/* <![CDATA[ */EnlighterJS_Config = {"selector":{"block":"pre.EnlighterJSRAW","inline":"code.EnlighterJSRAW"},"language":"generic","theme":"enlighter","indent":2,"hover":"hoverEnabled","showLinenumbers":true,"rawButton":true,"infoButton":true,"windowButton":true,"rawcodeDoubleclick":false,"grouping":true,"cryptex":{"enabled":false,"email":"mail@example.tld"}};!function(){var a=function(a){var b="Enlighter Error: ";console.error?console.error(b+a):console.log&&console.log(b+a)};return window.addEvent?"undefined"==typeof EnlighterJS?void a("Javascript Resources not loaded yet!"):"undefined"==typeof EnlighterJS_Config?void a("Configuration not loaded yet!"):void window.addEvent("domready",function(){EnlighterJS.Util.Init(EnlighterJS_Config.selector.block,EnlighterJS_Config.selector.inline,EnlighterJS_Config)}):void a("MooTools Framework not loaded yet!")}();;/* ]]> */</script>
+
+</body></html>

@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), url(https://fonts.gstatic.com/l/font?kit=ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZKCYKd9N6RGcyqJ0ZlyoeSL_vot1piPR978qKjCGh8E6D&skey=d87779efc0c688ec&v=v16) format('woff2');
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Condensed'), local('RobotoCondensed-Regular'), url(https://fonts.gstatic.com/l/font?kit=ieVl2ZhZI2eCN5jzbjEETS9weq8-59CpFQMeVbEUMmgqs4MepBotTLrsr9JijfN-89aWiSar&skey=9986ecffddb755ab&v=v16) format('woff2');
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'), url(https://fonts.gstatic.com/l/font?kit=ieVi2ZhZI2eCN5jzbjEETS9weq8-32meKCYKd9N6RGcyqJ0ZlyoeSL_vot1piPR978qKjCGh8E6D&skey=b54a1a8c4612f15a&v=v16) format('woff2');
+}
